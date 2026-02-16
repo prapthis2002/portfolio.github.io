@@ -1,0 +1,733 @@
+---
+import Layout from '../layouts/Layout.astro';
+import poster1 from '../assets/Delicious/KOREAN CHICKEN POSTER.png';
+import poster2 from '../assets/Delicious/poster design.png';
+import poster3 from '../assets/Delicious/delcious 2.png';
+---
+
+<Layout>
+  <div class="project-page">
+    <a href="/" class="back-button">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      BACK
+    </a>
+
+    <div class="project-content">
+      <div class="hero-section">
+        <div class="hero-content">
+          <div class="carousel-wrapper">
+            <div class="carousel-container">
+              <button class="carousel-nav prev" aria-label="Previous">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              
+              <div class="carousel-track">
+                <div class="carousel-item active">
+                  <img src={poster1.src} alt="Korean Fried Chicken Poster" />
+                </div>
+                <div class="carousel-item">
+                  <img src={poster2.src} alt="Delicious Poster Design" />
+                </div>
+                <div class="carousel-item">
+                  <img src={poster3.src} alt="Delicious Poster 2" />
+                </div>
+              </div>
+              
+              <button class="carousel-nav next" aria-label="Next">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+          
+          <div class="bottom-section">
+            <p class="logo-label">POSTER DESIGN</p>
+            <h1 class="project-name">DELICIOUS</h1>
+            <div class="project-details">
+              <div class="detail-item">
+                <p class="detail-label">YEAR</p>
+                <p class="detail-value">2025</p>
+              </div>
+
+              <div class="detail-item">
+                <p class="detail-label">PROJECT</p>
+                <p class="detail-value">Educational Institute</p>
+              </div>
+
+              <div class="detail-item">
+                <p class="detail-label">ROLE</p>
+                <p class="detail-value">UI Designer</p>
+              </div>
+
+              <div class="detail-item">
+                <p class="detail-label">CATEGORY</p>
+                <p class="detail-value">Landing Page</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="description-section">
+        <h2 class="section-title">OVERVIEW</h2>
+        <p class="description-text">
+          For this exploration, the goal was to design three promotional posters for a fictional brand named "Delicious" featuring Sushi, Korean Fried Chicken, and Chicken Ramen. Each layout focuses on appetite appeal, strong typography, and clear offers like "Upto 50% off" and "Free home delivery" to mirror real-world social media and print promotions.
+        </p>
+        
+        <div class="visual-direction">
+          <h3 class="strategy-title">VISUAL DIRECTION</h3>
+          <p class="strategy-text">
+            The overall art direction is energetic and urban, using high-contrast food photography against flat backgrounds to make every dish feel rich and craveable. Large product images are paired with dynamic compositions (floating sushi, splashing sauce, close-up fried chicken and ramen bowls) to grab attention instantly in a scrolling environment.
+          </p>
+        </div>
+      </div>
+
+      <div class="color-palette">
+        <h3 class="palette-title">COLOR PALETTE</h3>
+        <div class="color-swatches">
+          <div class="color-swatch" style="background-color: #F30000;">
+            <span class="color-code">#F30000</span>
+          </div>
+          <div class="color-swatch white" style="background-color: #D9D9D9;">
+            <span class="color-code black">#D9D9D9</span>
+          </div>
+          <div class="color-swatch black-swatch" style="background-color: #000000;">
+            <span class="color-code">#000000</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="typography-section">
+        <h2 class="section-title">TYPOGRAPHY CHOICES</h2>
+        <div class="font-showcase">
+          <h3 class="font-name">DM SERIF TEXT</h3>
+          <p class="font-style">REGULAR</p>
+        </div>
+        <ul class="typography-list">
+          <li>Headline type: A bold, condensed DM Serif Text is used for words like "DELICIOUS," "SUSHI," "KOREAN FRIED CHICKEN," and "CHICKEN RAMEN" to create a strong hierarchy and instant readability from a distance.</li>
+          <li>Supporting text: DM Serif Text body copy communicates offers and descriptions in a simple, modern tone that fits a fast-casual, delivery-oriented brand.</li>
+        </ul>
+      </div>
+
+      <div class="next-project">
+        <p class="next-label">NEXT PROJECT</p>
+        <a href="/gowaterz" class="next-link">
+          <span class="next-title">GOWATERZ</span>
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+
+      <footer class="footer">
+        <p>© 2026 Portfolio. All rights reserved.</p>
+      </footer>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .project-page {
+    background-color: #0a0a0a;
+    min-height: 100vh;
+    color: var(--color-white);
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  .back-button {
+    position: fixed;
+    top: 2rem;
+    left: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-white);
+    text-decoration: none;
+    font-family: var(--font-syne);
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 1.5px;
+    transition: all 0.3s ease;
+    z-index: 9998;
+    opacity: 0.9;
+  }
+
+  .back-button:hover {
+    opacity: 1;
+    color: var(--color-red);
+  }
+
+  .back-button svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .project-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-section {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background: linear-gradient(135deg, #1a0000 0%, #0a0a0a 50%, #1a0000 100%);
+    position: relative;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .hero-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40%;
+    background: linear-gradient(to top, rgba(10, 10, 10, 1) 0%, rgba(10, 10, 10, 0.8) 30%, transparent 100%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .hero-content {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    z-index: 2;
+  }
+
+  .spacer {
+    flex: 1;
+  }
+
+  .carousel-wrapper {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 0;
+    min-height: 0;
+  }
+
+  .carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .carousel-track {
+    position: relative;
+    width: 100%;
+    height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 1rem;
+  }
+
+  .bottom-section {
+    padding: 3rem;
+  }
+
+  .project-name {
+    font-size: 4rem;
+    font-weight: 700;
+    color: #FF0000;
+    margin: 0 0 2rem 0;
+    letter-spacing: 0.05em;
+  }
+
+  .project-details {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+  }
+
+  .detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .detail-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0;
+  }
+
+  .detail-value {
+    font-size: 1rem;
+    color: #fff;
+    margin: 0;
+  }
+
+  .carousel-item {
+    position: absolute;
+    width: auto;
+    max-width: 350px;
+    height: auto;
+    max-height: 400px;
+    transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    opacity: 0;
+    transform: translateX(-50%) scale(0.85);
+    pointer-events: none;
+  }
+
+  .carousel-item.active {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    z-index: 3;
+    pointer-events: auto;
+  }
+
+  .carousel-item.next {
+    opacity: 0.6;
+    transform: translateX(30%) scale(0.85);
+    z-index: 1;
+  }
+
+  .carousel-item.prev {
+    opacity: 0.6;
+    transform: translateX(-30%) scale(0.85);
+    z-index: 1;
+  }
+
+  .carousel-item img {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    object-fit: contain;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+
+  .carousel-nav {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--color-white);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    z-index: 10;
+  }
+
+  .carousel-nav:hover {
+    background: rgba(255, 0, 0, 0.2);
+    border-color: var(--color-red);
+    transform: scale(1.1);
+  }
+
+  .carousel-nav:active {
+    transform: scale(0.95);
+  }
+
+  .description-section {
+    padding: 4rem 3rem 3rem 3rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    font-family: var(--font-syne);
+    font-size: 0.625rem;
+    font-weight: 400;
+    letter-spacing: 3px;
+    color: rgba(255, 255, 255, 0.4);
+    margin: 0 0 1.5rem 0;
+    text-transform: uppercase;
+  }
+
+  .description-text {
+    font-family: var(--font-syne);
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--color-white);
+    margin: 0 0 2.5rem 0;
+  }
+
+  .visual-direction {
+    margin-top: 2rem;
+  }
+
+  .strategy-title {
+    font-family: var(--font-syne);
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 2.5px;
+    color: rgba(255, 80, 80, 0.8);
+    margin: 0 0 1.25rem 0;
+    text-transform: uppercase;
+  }
+
+  .strategy-text {
+    font-family: var(--font-syne);
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.75);
+    margin: 0 0 1.25rem 0;
+  }
+
+  .color-palette {
+    padding: 2rem 3rem 3rem 3rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .palette-title {
+    font-family: var(--font-syne);
+    font-size: 0.625rem;
+    font-weight: 400;
+    letter-spacing: 3px;
+    color: rgba(255, 255, 255, 0.4);
+    margin: 0 0 1.5rem 0;
+    text-transform: uppercase;
+  }
+
+  .color-swatches {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .color-swatch {
+    width: 100%;
+    height: 60px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .color-swatch.white {
+    border: 1px solid #252525;
+  }
+
+  .color-swatch.black-swatch {
+    border: 1px solid #252525;
+  }
+
+  .color-code {
+    font-family: var(--font-syne);
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    color: var(--color-white);
+  }
+
+  .color-code.black {
+    color: #0a0a0a;
+  }
+
+  .typography-section {
+    padding: 2rem 3rem 3rem 3rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .font-showcase {
+    margin-bottom: 2rem;
+  }
+
+  .font-name {
+    font-family: 'DM Serif Text', serif;
+    font-size: 3.5rem;
+    font-weight: 400;
+    color: var(--color-white);
+    margin: 0 0 0.5rem 0;
+    letter-spacing: 0.02em;
+  }
+
+  .font-style {
+    font-family: var(--font-syne);
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  .typography-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0 0 0;
+  }
+
+  .typography-list li {
+    font-family: var(--font-syne);
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 1rem;
+    padding-left: 1.2rem;
+    position: relative;
+  }
+
+  .typography-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1rem;
+  }
+
+  .next-project {
+    padding: 4rem 3rem;
+    max-width: 900px;
+    margin: 0 auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .next-label {
+    font-family: var(--font-syne);
+    font-size: 0.625rem;
+    font-weight: 400;
+    letter-spacing: 3px;
+    color: rgba(255, 255, 255, 0.4);
+    margin: 0 0 1rem 0;
+    text-transform: uppercase;
+  }
+
+  .next-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    padding: 1rem 0;
+  }
+
+  .next-link:hover {
+    opacity: 0.8;
+  }
+
+  .next-link:hover svg {
+    transform: translate(5px, -5px);
+  }
+
+  .next-title {
+    font-family: var(--font-syne);
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    font-weight: 700;
+    color: var(--color-white);
+    letter-spacing: -0.02em;
+  }
+
+  .next-link svg {
+    width: 32px;
+    height: 32px;
+    color: var(--color-white);
+    transition: transform 0.3s ease;
+  }
+
+  .footer {
+    padding: 3rem 3rem 2rem 3rem;
+    text-align: center;
+  }
+
+  .footer p {
+    font-family: var(--font-syne);
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.3);
+    margin: 0;
+  }
+
+  @media (max-width: 1024px) {
+    .project-details {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem 1rem;
+    }
+
+    .carousel-item {
+      max-width: 300px;
+      max-height: 380px;
+    }
+
+    .carousel-track {
+      height: 380px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero-content {
+      padding: 1.25rem 1.25rem 1.5rem 1.25rem;
+    }
+
+    .project-details {
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem 0.75rem;
+    }
+
+    .carousel-track {
+      height: 350px;
+    }
+
+    .carousel-item {
+      max-width: 280px;
+      max-height: 340px;
+    }
+
+    .carousel-nav {
+      width: 40px;
+      height: 40px;
+    }
+
+    .description-section,
+    .color-palette {
+      padding: 2rem 1.25rem;
+    }
+
+    .description-text,
+    .strategy-text {
+      font-size: 0.95rem;
+    }
+
+    .typography-section {
+      padding: 2rem 1.25rem;
+    }
+
+    .font-name {
+      font-size: 2.5rem;
+    }
+
+    .typography-list li {
+      font-size: 0.85rem;
+    }
+
+    .next-project,
+    .footer {
+      padding: 2rem 1.25rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .project-details {
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+
+    .carousel-track {
+      height: 320px;
+    }
+
+    .carousel-item {
+      max-width: 240px;
+      max-height: 310px;
+    }
+    
+    .hero-content {
+      padding: 1rem 1rem 1.25rem 1rem;
+    }
+
+    .description-section,
+    .color-palette {
+      padding: 1.5rem 1rem;
+    }
+
+    .section-title,
+    .palette-title {
+      font-size: 0.55rem;
+      letter-spacing: 2px;
+    }
+
+    .description-text,
+    .strategy-text {
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .typography-section {
+      padding: 1.5rem 1rem;
+    }
+
+    .font-name {
+      font-size: 2rem;
+    }
+
+    .typography-list li {
+      font-size: 0.8rem;
+      line-height: 1.6;
+    }
+
+    .next-project {
+      padding: 2rem 1rem;
+    }
+
+    .next-link svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .footer {
+      padding: 2rem 1rem 1.5rem 1rem;
+    }
+
+    .footer p {
+      font-size: 0.7rem;
+    }
+  }
+</style>
+
+<script>
+  let currentIndex = 0;
+  const items = document.querySelectorAll('.carousel-item');
+  const totalItems = items.length;
+
+  function updateCarousel() {
+    items.forEach((item, index) => {
+      item.classList.remove('active', 'next', 'prev');
+      
+      if (index === currentIndex) {
+        item.classList.add('active');
+      } else if (index === (currentIndex + 1) % totalItems) {
+        item.classList.add('next');
+      } else if (index === (currentIndex - 1 + totalItems) % totalItems) {
+        item.classList.add('prev');
+      }
+    });
+  }
+
+  document.querySelector('.carousel-nav.prev')?.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % totalItems;
+    updateCarousel();
+  });
+
+  document.querySelector('.carousel-nav.next')?.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+    updateCarousel();
+  });
+
+  // Initialize
+  updateCarousel();
+</script>

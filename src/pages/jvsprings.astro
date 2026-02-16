@@ -1,0 +1,387 @@
+---
+import Layout from '../layouts/Layout.astro';
+import heroSec from '../assets/Jv Springs/Hero sec.png';
+import independenceDay from '../assets/Jv Springs/independence day.jpg';
+import republicDay from '../assets/Jv Springs/republic day.png';
+import ganeshChaturthi from '../assets/Jv Springs/ganesh chaturthi.png';
+import makarSankranthi from '../assets/Jv Springs/makar sankranthi.jpeg';
+import specialOffer from '../assets/Jv Springs/Special offer.png';
+import specialOffer2 from '../assets/Jv Springs/special offer 2.png';
+import weAreHiring from '../assets/Jv Springs/we are hiring.jpg';
+import ayudaPooja from '../assets/Jv Springs/ayuda pooja.PNG';
+---
+
+<Layout>
+  <div class="project-page">
+    <a href="/" class="back-button">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      BACK
+    </a>
+
+    <div class="project-content">
+      <div class="hero-section">
+        <img src={heroSec.src} alt="Hero Background" class="hero-bg-image" />
+        <div class="hero-content">
+          <div class="spacer"></div>
+          
+          <div class="bottom-section">
+            <p class="logo-label">SOCIAL MEDIA POSTER DESIGN</p>
+            <h1 class="project-name">JVSPRINGS</h1>
+            <div class="project-details">
+            <div class="detail-item">
+              <p class="detail-label">YEAR</p>
+              <p class="detail-value">2025</p>
+            </div>
+
+            <div class="detail-item">
+              <p class="detail-label">PROJECT</p>
+              <p class="detail-value">JVS</p>
+            </div>
+
+            <div class="detail-item">
+              <p class="detail-label">ROLE</p>
+              <p class="detail-value">Content editor</p>
+            </div>
+
+            <div class="detail-item">
+              <p class="detail-label">CATEGORY</p>
+              <p class="detail-value">Social media poster design</p>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mockups-section">
+        <div class="mockup-row-2">
+          <img src={makarSankranthi.src} alt="Makar Sankranti Poster" class="mockup-image" />
+          <img src={specialOffer2.src} alt="Special Offer 2 Poster" class="mockup-image" />
+          <img src={republicDay.src} alt="Republic Day Poster" class="mockup-image" />
+        </div>
+        
+        <div class="mockup-row-2">
+          <img src={ayudaPooja.src} alt="Ayuda Pooja Poster" class="mockup-image" />
+          <img src={independenceDay.src} alt="Independence Day Poster" class="mockup-image" />
+          <img src={ganeshChaturthi.src} alt="Ganesh Chaturthi Poster" class="mockup-image" />
+        </div>
+        
+        <div class="mockup-row-2">
+          <img src={specialOffer.src} alt="Special Offer Poster" class="mockup-image" />
+          <img src={weAreHiring.src} alt="We Are Hiring Poster" class="mockup-image" />
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .project-page {
+    min-height: 100vh;
+    background-color: #000;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+  }
+
+  .back-button {
+    position: fixed;
+    top: 2rem;
+    left: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 1.5px;
+    transition: all 0.3s ease;
+    z-index: 9998;
+    opacity: 0.9;
+  }
+
+  .back-button:hover {
+    opacity: 1;
+    color: #FF0000;
+  }
+
+  .back-button svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .project-content {
+    padding-top: 0;
+  }
+
+  .hero-section {
+    height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+    background-color: #000;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    left: 0;
+  }
+
+  .hero-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    z-index: 0;
+  }
+
+  .hero-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.8) 90%, rgba(0,0,0,0.95) 100%);
+    z-index: 1;
+  }
+
+  .hero-content {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    z-index: 2;
+  }
+
+  .spacer {
+    flex: 1;
+  }
+
+  .bottom-section {
+    padding: 3rem;
+  }
+
+  .logo-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 1rem;
+  }
+
+  .project-name {
+    font-size: 4rem;
+    font-weight: 700;
+    color: #FF0000;
+    margin: 0 0 2rem 0;
+    letter-spacing: 0.05em;
+  }
+
+  .project-details {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+  }
+
+  .detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .detail-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0;
+  }
+
+  .detail-value {
+    font-size: 1rem;
+    color: #fff;
+    margin: 0;
+  }
+
+  .description-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 6rem 3rem;
+  }
+
+  .section-title {
+    font-size: 0.875rem;
+    letter-spacing: 0.2em;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 2rem;
+  }
+
+  .description-text {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 3rem;
+  }
+
+  .color-strategy {
+    margin-top: 3rem;
+  }
+
+  .strategy-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #fff;
+  }
+
+  .strategy-text {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1.5rem;
+  }
+
+  .strategy-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+  }
+
+  .strategy-list li {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.9);
+    padding-left: 1.5rem;
+    position: relative;
+    margin-bottom: 1rem;
+  }
+
+  .strategy-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #FF0000;
+    font-weight: bold;
+  }
+
+  .mockups-section {
+    padding: 2rem 3rem;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    position: relative;
+  }
+
+  .mockups-section:has(.mockup-image:hover) .mockup-image:not(:hover) {
+    opacity: 0.3;
+  }
+
+  .mockup-row-1,
+  .mockup-row-2,
+  .mockup-row-3 {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    gap: 0.25rem;
+  }
+
+  .mockup-row-1 {
+    grid-template-columns: 1fr;
+  }
+
+  .mockup-row-2 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .mockup-row-3 {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: end;
+  }
+
+  .mockup-row-3 .mockup-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: bottom;
+  }
+
+  .mockup-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+
+  .mockup-image:hover {
+    transform: scale(1.05);
+    z-index: 10;
+  }
+
+  .color-palette {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 3rem 6rem;
+    display: flex;
+    gap: 2rem;
+  }
+
+  .color-swatch {
+    flex: 1;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    position: relative;
+  }
+
+  .color-code {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  .color-code.black {
+    color: #000;
+  }
+
+  @media (max-width: 768px) {
+    .project-name {
+      font-size: 2.5rem;
+    }
+
+    .project-details {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .mockup-row-2 {
+      grid-template-columns: 1fr;
+    }
+
+    .color-palette {
+      flex-direction: column;
+    }
+
+    .color-swatch {
+      height: 150px;
+    }
+
+    .bottom-section {
+      padding: 2rem;
+    }
+
+    .description-section,
+    .mockups-section,
+    .color-palette {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+</style>

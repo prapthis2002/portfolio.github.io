@@ -1,0 +1,280 @@
+---
+const projects = [
+  {
+    title: "Tripzzie",
+    category: "WEBSITE DESIGN",
+    link: "#"
+  },
+  {
+    title: "ECE Workshop",
+    category: "LANDING PAGE",
+    link: "/eceworkshop"
+  },
+  {
+    title: "Go Waterz",
+    category: "LOGO DESIGN",
+    link: "/gowaterz"
+  },
+  {
+    title: "Delicious",
+    category: "POSTER DESIGN",
+    link: "/delicious"
+  },
+  {
+    title: "JV Springs",
+    category: "POSTER DESIGN",
+    link: "/jvsprings"
+  }
+];
+---
+
+<section class="work" id="work">
+  <div class="work-container">
+    <div class="red-blob"></div>
+    
+    <div class="work-header">
+      <h2 class="work-title">
+        <span class="white">SELECTED</span>
+        <span class="red">WORKS</span>
+      </h2>
+      <p class="work-subtitle">Brand identity, web design & visual communication</p>
+    </div>
+
+    <div class="projects-list">
+      {projects.map((project, index) => (
+        <a href={project.link} class="project-item">
+          <div class="project-info">
+            <span class="project-number">0{index + 1}</span>
+            <div class="project-details">
+              <h3 class="project-title">{project.title}</h3>
+              <p class="project-category">{project.category}</p>
+            </div>
+          </div>
+          <div class="project-arrow">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <div class="cta-section">
+      <h3 class="cta-title">Let's work together</h3>
+      <p class="cta-subtitle">Available for freelance projects</p>
+      <a href="#contact" class="cta-button">CONTACT</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .work {
+    background-color: #1a1a1a;
+    color: var(--color-white);
+    padding: 6rem 3rem;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  .work-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .red-blob {
+    position: absolute;
+    top: -200px;
+    right: -200px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255, 1, 5, 0.3) 0%, rgba(255, 1, 5, 0) 70%);
+    border-radius: 50%;
+    filter: blur(80px);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .work-header {
+    margin-bottom: 5rem;
+  }
+
+  .work-title {
+    font-family: var(--font-syne);
+    font-size: clamp(3rem, 7vw, 5rem);
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.1;
+    letter-spacing: 2px;
+  }
+
+  .work-title .white {
+    display: block;
+    color: var(--color-white);
+  }
+
+  .work-title .red {
+    display: block;
+    color: var(--color-red);
+  }
+
+  .work-subtitle {
+    font-family: var(--font-syne);
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #888;
+    margin: 1rem 0 0 0;
+    letter-spacing: 1px;
+  }
+
+  .projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 8rem;
+  }
+
+  .project-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2.5rem 0;
+    border-bottom: 1px solid #2a2a2a;
+    text-decoration: none;
+    color: var(--color-white);
+    transition: all 0.3s ease;
+  }
+
+  .project-item:hover {
+    padding-left: 1rem;
+    border-bottom-color: var(--color-red);
+  }
+
+  .project-item:hover .project-arrow {
+    transform: translate(5px, -5px);
+    color: var(--color-red);
+  }
+
+  .project-info {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .project-number {
+    font-family: var(--font-syne);
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: #666;
+  }
+
+  .project-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .project-title {
+    font-family: var(--font-syne);
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 400;
+    margin: 0;
+    color: var(--color-white);
+  }
+
+  .project-category {
+    font-family: var(--font-syne);
+    font-size: 0.85rem;
+    font-weight: 400;
+    margin: 0;
+    color: #888;
+    letter-spacing: 1px;
+  }
+
+  .project-arrow {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid #3a3a3a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-white);
+    transition: all 0.3s ease;
+  }
+
+  .cta-section {
+    text-align: left;
+    padding-top: 2rem;
+  }
+
+  .cta-title {
+    font-family: var(--font-syne);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 400;
+    margin: 0 0 0.5rem 0;
+    color: var(--color-white);
+  }
+
+  .cta-subtitle {
+    font-family: var(--font-syne);
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #888;
+    margin: 0 0 2rem 0;
+  }
+
+  .cta-button {
+    font-family: var(--font-syne);
+    font-size: 0.85rem;
+    font-weight: 700;
+    background-color: var(--color-white);
+    color: var(--color-black);
+    padding: 0.9rem 2.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    letter-spacing: 1px;
+    display: inline-block;
+    transition: all 0.3s ease;
+  }
+
+  .cta-button:hover {
+    background-color: var(--color-red);
+    color: var(--color-white);
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 768px) {
+    .work {
+      padding: 4rem 2rem;
+    }
+
+    .work-header {
+      margin-bottom: 3rem;
+    }
+
+    .project-info {
+      gap: 1.5rem;
+    }
+
+    .project-number {
+      font-size: 0.9rem;
+    }
+
+    .project-item {
+      padding: 2rem 0;
+    }
+
+    .project-arrow {
+      width: 40px;
+      height: 40px;
+    }
+
+    .projects-list {
+      margin-bottom: 5rem;
+    }
+  }
+</style>
