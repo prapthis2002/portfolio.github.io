@@ -1,29 +1,36 @@
 ---
+import { getImage } from 'astro:assets';
 import bgImage from '../assets/IMG_4534.JPG';
 
 const { currentPage = 'home' } = Astro.props;
+const optimizedBg = await getImage({ src: bgImage, width: 1920, format: 'webp', quality: 80 });
 ---
 
-<section class="hero" id="home">
+<section class="hero" id="home" style={`background-image: url(${optimizedBg.src})`}>
   <div class="hero-content">
     <header class="header" id="main-header">
       <div class="logo">PRAPTHI.S</div>
       <nav class="nav">
-        <a href="#home" class="nav-link" data-section="home">HOME</a>
-        <a href="#about" class="nav-link" data-section="about">ABOUT</a>
-        <a href="#work" class="nav-link" data-section="work">WORK</a>
-        <a href="#contact" class="nav-link" data-section="contact">CONTACT</a>
+        <a href="#home" class="nav-link" data-section="home" data-cursor-hover>HOME</a>
+        <a href="#about" class="nav-link" data-section="about" data-cursor-hover>ABOUT</a>
+        <a href="#work" class="nav-link" data-section="work" data-cursor-hover>WORK</a>
+        <a href="#contact" class="nav-link" data-section="contact" data-cursor-hover>CONTACT</a>
       </nav>
     </header>
-    
+
     <div class="hero-text">
       <h1>
-        <span class="hi">Hi, I'M</span>
-        <span class="name">PRAPTHI. S</span>
+        <span class="hi line-in">Hi, I'm</span>
+        <span class="name line-in line-in-delay-1">PRAPTHI. S</span>
       </h1>
-      <p class="tagline">
+      <p class="tagline line-in line-in-delay-2">
         <span class="red">Creating digital</span> <span class="gray">experiences</span>
       </p>
+    </div>
+
+    <div class="scroll-cue">
+      <span class="scroll-cue-line"></span>
+      <span class="scroll-cue-text">SCROLL</span>
     </div>
   </div>
 </section>
@@ -93,7 +100,6 @@ const { currentPage = 'home' } = Astro.props;
     position: relative;
     width: 100%;
     height: 100vh;
-    background-image: url('/src/assets/IMG_4534.JPG');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -180,47 +186,64 @@ const { currentPage = 'home' } = Astro.props;
 
   .hero-text {
     position: absolute;
-    left: 55%;
+    right: 5%;
     top: 30%;
-    transform: translate(-20%, -50%);
+    max-width: 56vw;
+    transform: translateY(-50%);
     display: flex;
     flex-direction: column;
-    animation: fadeInUp 1s ease-out;
-  }
-
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translate(-20%, -40%);
-    }
-    to {
-      opacity: 1;
-      transform: translate(-20%, -50%);
-    }
+    align-items: flex-end;
+    text-align: right;
   }
 
   h1 {
     margin: 0;
     display: flex;
     flex-direction: column;
-    line-height: 1;
+    align-items: flex-end;
+    line-height: 0.95;
+    max-width: 100%;
+  }
+
+  .line-in {
+    opacity: 0;
+    transform: translateY(110%);
+    animation: lineIn var(--dur-slow, 700ms) var(--ease-out, ease-out) forwards;
+    animation-delay: 0.1s;
+  }
+
+  .line-in-delay-1 {
+    animation-delay: 0.25s;
+  }
+
+  .line-in-delay-2 {
+    animation-delay: 0.45s;
+  }
+
+  @keyframes lineIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .hi {
-    font-size: clamp(3rem, 8vw, 5.5rem);
+    font-size: clamp(2.4rem, 6vw, 4.5rem);
     font-weight: 700;
     color: var(--color-red);
     margin-bottom: 0.2rem;
-    letter-spacing: 2px;
+    letter-spacing: -0.01em;
     font-family: var(--font-syne);
+    white-space: nowrap;
   }
 
   .name {
-    font-size: clamp(3rem, 8vw, 5.5rem);
-    font-weight: 700;
+    font-size: clamp(2.6rem, 7.5vw, 5.8rem);
+    font-weight: 800;
     color: var(--color-dark-gray);
-    letter-spacing: 3px;
+    letter-spacing: -0.02em;
     font-family: var(--font-syne);
+    white-space: nowrap;
   }
 
   .tagline {
@@ -233,18 +256,6 @@ const { currentPage = 'home' } = Astro.props;
     border-radius: 50px;
     max-width: fit-content;
     font-family: var(--font-syne);
-    animation: fadeIn 1s ease-out 0.3s backwards;
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
   }
 
   .tagline .red {
@@ -257,7 +268,74 @@ const { currentPage = 'home' } = Astro.props;
     font-weight: 400;
   }
 
+  .scroll-cue {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    opacity: 0;
+    animation: fadeIn 0.6s ease-out 1s forwards;
+  }
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+
+  .scroll-cue-line {
+    width: 1px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.5);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .scroll-cue-line::after {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--color-red);
+    animation: scrollLine 1.8s ease-in-out infinite;
+  }
+
+  @keyframes scrollLine {
+    0% { top: -100%; }
+    50% { top: 0%; }
+    100% { top: 100%; }
+  }
+
+  .scroll-cue-text {
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    color: rgba(255, 255, 255, 0.7);
+    writing-mode: vertical-rl;
+    font-family: var(--font-syne);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .line-in {
+      opacity: 1;
+      transform: none;
+      animation: none;
+    }
+
+    .scroll-cue {
+      display: none;
+    }
+  }
+
   @media (max-width: 768px) {
+    .scroll-cue {
+      display: none;
+    }
+
     .header {
       padding: 1.5rem 2rem;
       flex-direction: column;
@@ -265,17 +343,35 @@ const { currentPage = 'home' } = Astro.props;
     }
 
     .nav {
-      gap: 1.5rem;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .nav a {
+      padding: 0.5rem 0.9rem;
+      font-size: 0.7rem;
     }
 
     .hero-text {
       left: 50%;
+      right: auto;
       top: 50%;
+      max-width: 100%;
       transform: translate(-50%, -50%);
       padding: 0 2rem;
       width: 100%;
       align-items: center;
       text-align: center;
+    }
+
+    h1 {
+      align-items: center;
+    }
+
+    .hi,
+    .name {
+      white-space: normal;
     }
 
     .tagline {

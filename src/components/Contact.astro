@@ -5,18 +5,18 @@ const { currentPage = 'contact' } = Astro.props;
 <section class="contact" id="contact">
   <div class="contact-container">
     <div class="contact-content">
-      <p class="get-in-touch">GET IN TOUCH</p>
-      
-      <h2 class="contact-title">
+      <p class="get-in-touch reveal">GET IN TOUCH</p>
+
+      <h2 class="contact-title reveal">
         <span class="red">Let's create</span>
         <span class="gray">something great</span>
       </h2>
 
-      <div class="contact-layout">
+      <div class="contact-layout reveal-scale" data-stagger>
         <div class="contact-info">
           <div class="info-section">
             <h3 class="info-label">EMAIL</h3>
-            <a href="mailto:prapthi.s2002@gmail.com" class="info-value">prapthi.s2002@gmail.com</a>
+            <a href="mailto:prapthi.s2002@gmail.com" class="info-value" data-cursor-hover>prapthi.s2002@gmail.com</a>
           </div>
 
           <div class="info-section">
@@ -27,39 +27,39 @@ const { currentPage = 'contact' } = Astro.props;
           <div class="info-section">
             <h3 class="info-label">SOCIAL</h3>
             <div class="social-links">
-              <a href="#" class="social-btn" target="_blank" rel="noopener noreferrer">Behance</a>
-              <a href="#" class="social-btn" target="_blank" rel="noopener noreferrer">Instagram</a>
-              <a href="#" class="social-btn" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <a href="#" class="social-btn" target="_blank" rel="noopener noreferrer" data-cursor-hover>Behance</a>
+              <a href="#" class="social-btn" target="_blank" rel="noopener noreferrer" data-cursor-hover>Instagram</a>
+              <a href="#" class="social-btn" target="_blank" rel="noopener noreferrer" data-cursor-hover>LinkedIn</a>
             </div>
           </div>
         </div>
 
         <div class="contact-form-wrapper">
           <form class="contact-form">
-            <input 
-              type="text" 
-              name="name" 
-              placeholder="Your Name" 
+            <input
+              type="text"
+              name="name"
+              placeholder="Your Name"
               required
               class="form-input"
             />
-            
-            <input 
-              type="email" 
-              name="email" 
-              placeholder="Your Email" 
+
+            <input
+              type="email"
+              name="email"
+              placeholder="Your Email"
               required
               class="form-input"
             />
-            
-            <textarea 
-              name="message" 
-              placeholder="Tell me about your project..." 
+
+            <textarea
+              name="message"
+              placeholder="Tell me about your project..."
               required
               class="form-textarea"
             ></textarea>
-            
-            <button type="submit" class="submit-btn">SEND MESSAGE</button>
+
+            <button type="submit" class="submit-btn" data-cursor-hover>SEND MESSAGE</button>
           </form>
         </div>
       </div>
@@ -111,11 +111,11 @@ const { currentPage = 'contact' } = Astro.props;
 
   .contact-title {
     font-family: var(--font-syne);
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
-    font-weight: 700;
+    font-size: clamp(2.8rem, 8vw, 6rem);
+    font-weight: 800;
     margin: 0 0 4rem 0;
-    line-height: 1.2;
-    letter-spacing: 2px;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
   }
 
   .contact-title .red {
@@ -213,7 +213,7 @@ const { currentPage = 'contact' } = Astro.props;
     color: var(--color-white);
     padding: 1rem 0;
     outline: none;
-    transition: border-color 0.3s ease;
+    transition: border-color var(--dur-base, 0.3s) var(--ease-out, ease);
   }
 
   .form-input::placeholder,

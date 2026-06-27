@@ -1,16 +1,18 @@
 ---
+import { Image, getImage } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import gowaterzHero from '../assets/goWaterz/gowaterzHero.png';
-import gowaterz2 from '../assets/goWaterz/gowaterz 2.png';
 import gowaterz3 from '../assets/goWaterz/goWaterz 3.png';
 import gowaterz4 from '../assets/goWaterz/goWaterz 4.png';
 import gowaterz5 from '../assets/goWaterz/goWaterz 5.png';
 import gowaterz6 from '../assets/goWaterz/goWaterz 6.png';
+
+const optimizedHero = await getImage({ src: gowaterzHero, width: 1920, format: 'webp', quality: 80 });
 ---
 
 <Layout>
   <div class="project-page">
-    <a href="/" class="back-button">
+    <a href="/" class="back-button" data-cursor-hover>
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
@@ -18,14 +20,14 @@ import gowaterz6 from '../assets/goWaterz/goWaterz 6.png';
     </a>
 
     <div class="project-content">
-      <div class="hero-section" style={`background-image: url(${gowaterzHero.src});`}>
+      <div class="hero-section" style={`background-image: url(${optimizedHero.src});`}>
         <div class="hero-content">
           <div class="spacer"></div>
-          
+
           <div class="bottom-section">
-            <p class="logo-label">LOGO DESIGN</p>
-            <h1 class="project-name">GOWATERZ</h1>
-            <div class="project-details">
+            <p class="logo-label reveal">LOGO DESIGN</p>
+            <h1 class="project-name reveal">GOWATERZ</h1>
+            <div class="project-details reveal" data-stagger>
             <div class="detail-item">
               <p class="detail-label">YEAR</p>
               <p class="detail-value">2024</p>
@@ -50,12 +52,12 @@ import gowaterz6 from '../assets/goWaterz/goWaterz 6.png';
         </div>
       </div>
 
-      <div class="description-section">
+      <div class="description-section reveal">
         <h2 class="section-title">OVERVIEW</h2>
         <p class="description-text">
           The GO WATERZ logo was designed for a yacht rental, buying, and selling brand operating across India and select international waters. The identity balances luxury, trust, and fluid motion, reflecting both the marine environment and the premium nature of the services.
         </p>
-        
+
         <div class="color-strategy">
           <h3 class="strategy-title">Color Strategy</h3>
           <p class="strategy-text">
@@ -72,23 +74,22 @@ import gowaterz6 from '../assets/goWaterz/goWaterz 6.png';
         </div>
       </div>
 
-      <div class="mockups-section">
-        <div class="mockup-row-1">
-          <img src={gowaterz4.src} alt="Gowaterz phone mockup" class="mockup-image" />
+      <div class="mockups-section" data-stagger>
+        <div class="mockup-row-1 reveal">
+          <Image src={gowaterz4} alt="Gowaterz phone mockup" class="mockup-image" width={900} loading="lazy" data-cursor-hover />
         </div>
-        
-        <div class="mockup-row-2">
-          <img src={gowaterz6.src} alt="Gowaterz app icon" class="mockup-image" />
-          <img src={gowaterz3.src} alt="Gowaterz badge" class="mockup-image" />
-          <img src={gowaterz2.src} alt="Gowaterz tag" class="mockup-image" />
+
+        <div class="mockup-row-2 reveal">
+          <Image src={gowaterz6} alt="Gowaterz app icon" class="mockup-image" width={500} loading="lazy" data-cursor-hover />
+          <Image src={gowaterz3} alt="Gowaterz badge" class="mockup-image" width={500} loading="lazy" data-cursor-hover />
         </div>
-        
-        <div class="mockup-row-3">
-          <img src={gowaterz5.src} alt="Gowaterz wall signage" class="mockup-image" />
+
+        <div class="mockup-row-3 reveal">
+          <Image src={gowaterz5} alt="Gowaterz wall signage" class="mockup-image" width={900} loading="lazy" data-cursor-hover />
         </div>
       </div>
 
-      <div class="color-palette">
+      <div class="color-palette reveal">
         <div class="color-swatch" style="background-color: #1B67AF;">
           <span class="color-code">#1B67AF</span>
         </div>
@@ -197,11 +198,11 @@ import gowaterz6 from '../assets/goWaterz/goWaterz 6.png';
   }
 
   .project-name {
-    font-size: 4rem;
-    font-weight: 700;
+    font-size: clamp(2.8rem, 8vw, 6rem);
+    font-weight: 800;
     color: #FF0000;
     margin: 0 0 2rem 0;
-    letter-spacing: 0.05em;
+    letter-spacing: -0.02em;
   }
 
   .project-details {
@@ -337,6 +338,11 @@ import gowaterz6 from '../assets/goWaterz/goWaterz 6.png';
     height: auto;
     display: block;
     object-fit: cover;
+    transition: transform var(--dur-base, 0.3s) var(--ease-out, ease);
+  }
+
+  .mockup-image:hover {
+    transform: scale(1.03);
   }
 
   .color-palette {
@@ -381,7 +387,7 @@ import gowaterz6 from '../assets/goWaterz/goWaterz 6.png';
     }
 
     .project-name {
-      font-size: clamp(2.5rem, 10vw, 5.5rem);
+      font-size: clamp(2rem, 8vw, 4.5rem);
     }
     
     .mockup-row-2 {
@@ -414,7 +420,7 @@ import gowaterz6 from '../assets/goWaterz/goWaterz 6.png';
     }
 
     .project-name {
-      font-size: clamp(2.25rem, 11vw, 4rem);
+      font-size: clamp(1.7rem, 9vw, 3.2rem);
       line-height: 0.9;
     }
 
@@ -502,7 +508,7 @@ import gowaterz6 from '../assets/goWaterz/goWaterz 6.png';
     }
 
     .project-name {
-      font-size: clamp(1.85rem, 13vw, 3.25rem);
+      font-size: clamp(1.5rem, 8vw, 2.6rem);
       line-height: 0.95;
     }
     

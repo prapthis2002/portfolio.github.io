@@ -1,29 +1,45 @@
 ---
+import { getImage } from 'astro:assets';
+import eceImg from '../assets/ECE worshop/Hero sec.png';
+import gowaterzImg from '../assets/goWaterz/gowaterzHero.png';
+import deliciousImg from '../assets/Delicious/poster design.png';
+import jvImg from '../assets/Jv Springs/Hero sec.png';
+
+const eceThumb = await getImage({ src: eceImg, width: 480, format: 'webp', quality: 75 });
+const gowaterzThumb = await getImage({ src: gowaterzImg, width: 480, format: 'webp', quality: 75 });
+const deliciousThumb = await getImage({ src: deliciousImg, width: 480, format: 'webp', quality: 75 });
+const jvThumb = await getImage({ src: jvImg, width: 480, format: 'webp', quality: 75 });
+
 const projects = [
   {
     title: "Tripzzie",
     category: "WEBSITE DESIGN",
-    link: "#"
+    link: "#",
+    preview: null
   },
   {
     title: "ECE Workshop",
     category: "LANDING PAGE",
-    link: "/eceworkshop"
+    link: "/eceworkshop",
+    preview: eceThumb.src
   },
   {
     title: "Go Waterz",
     category: "LOGO DESIGN",
-    link: "/gowaterz"
+    link: "/gowaterz",
+    preview: gowaterzThumb.src
   },
   {
     title: "Delicious",
     category: "POSTER DESIGN",
-    link: "/delicious"
+    link: "/delicious",
+    preview: deliciousThumb.src
   },
   {
     title: "JV Springs",
     category: "POSTER DESIGN",
-    link: "/jvsprings"
+    link: "/jvsprings",
+    preview: jvThumb.src
   }
 ];
 ---
@@ -31,8 +47,8 @@ const projects = [
 <section class="work" id="work">
   <div class="work-container">
     <div class="red-blob"></div>
-    
-    <div class="work-header">
+
+    <div class="work-header reveal">
       <h2 class="work-title">
         <span class="white">SELECTED</span>
         <span class="red">WORKS</span>
@@ -40,9 +56,14 @@ const projects = [
       <p class="work-subtitle">Brand identity, web design & visual communication</p>
     </div>
 
-    <div class="projects-list">
+    <div class="projects-list" data-stagger id="projects-list">
       {projects.map((project, index) => (
-        <a href={project.link} class="project-item">
+        <a
+          href={project.link}
+          class="project-item reveal"
+          data-cursor-hover
+          data-preview={project.preview ?? ''}
+        >
           <div class="project-info">
             <span class="project-number">0{index + 1}</span>
             <div class="project-details">
@@ -57,15 +78,50 @@ const projects = [
           </div>
         </a>
       ))}
+      <div class="project-preview" id="project-preview">
+        <img src="" alt="" id="project-preview-img" />
+      </div>
     </div>
 
-    <div class="cta-section">
+    <div class="cta-section reveal">
       <h3 class="cta-title">Let's work together</h3>
       <p class="cta-subtitle">Available for freelance projects</p>
-      <a href="#contact" class="cta-button">CONTACT</a>
+      <a href="#contact" class="cta-button" data-cursor-hover>CONTACT</a>
     </div>
   </div>
 </section>
+
+<script>
+  const list = document.getElementById('projects-list');
+  const preview = document.getElementById('project-preview');
+  const previewImg = document.getElementById('project-preview-img');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isFinePointer = window.matchMedia('(pointer: fine)').matches;
+
+  if (list && preview && previewImg && isFinePointer && !reduceMotion) {
+    const items = list.querySelectorAll('.project-item');
+
+    items.forEach((item) => {
+      const src = item.getAttribute('data-preview');
+
+      item.addEventListener('mouseenter', () => {
+        if (!src) return;
+        previewImg.setAttribute('src', src);
+        preview.classList.add('is-active');
+      });
+
+      item.addEventListener('mouseleave', () => {
+        preview.classList.remove('is-active');
+      });
+    });
+
+    list.addEventListener('mousemove', (e) => {
+      const rect = list.getBoundingClientRect();
+      preview.style.left = `${e.clientX - rect.left}px`;
+      preview.style.top = `${e.clientY - rect.top}px`;
+    });
+  }
+</script>
 
 <style>
   .work {
@@ -104,11 +160,11 @@ const projects = [
 
   .work-title {
     font-family: var(--font-syne);
-    font-size: clamp(3rem, 7vw, 5rem);
-    font-weight: 700;
+    font-size: clamp(3.2rem, 9vw, 7rem);
+    font-weight: 800;
     margin: 0;
-    line-height: 1.1;
-    letter-spacing: 2px;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
   }
 
   .work-title .white {
@@ -135,6 +191,7 @@ const projects = [
     flex-direction: column;
     gap: 0;
     margin-bottom: 8rem;
+    position: relative;
   }
 
   .project-item {
@@ -145,17 +202,51 @@ const projects = [
     border-bottom: 1px solid #2a2a2a;
     text-decoration: none;
     color: var(--color-white);
-    transition: all 0.3s ease;
+    transition: padding var(--dur-base, 0.3s) var(--ease-out, ease), border-color var(--dur-base, 0.3s) var(--ease-out, ease);
   }
 
   .project-item:hover {
-    padding-left: 1rem;
+    padding-left: 1.5rem;
     border-bottom-color: var(--color-red);
   }
 
-  .project-item:hover .project-arrow {
-    transform: translate(5px, -5px);
+  .project-item:hover .project-title {
     color: var(--color-red);
+    transform: translateX(6px);
+  }
+
+  .project-item:hover .project-arrow {
+    transform: translate(5px, -5px) rotate(45deg);
+    color: var(--color-red);
+    border-color: var(--color-red);
+  }
+
+  .project-preview {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 280px;
+    height: 200px;
+    border-radius: 12px;
+    overflow: hidden;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0.85);
+    opacity: 0;
+    transition: opacity var(--dur-base, 0.3s) var(--ease-out, ease), transform var(--dur-base, 0.3s) var(--ease-out, ease);
+    z-index: 5;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  }
+
+  .project-preview.is-active {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  .project-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
   .project-info {
@@ -183,6 +274,8 @@ const projects = [
     font-weight: 400;
     margin: 0;
     color: var(--color-white);
+    display: inline-block;
+    transition: color var(--dur-base, 0.3s) var(--ease-out, ease), transform var(--dur-base, 0.3s) var(--ease-out, ease);
   }
 
   .project-category {
@@ -203,7 +296,7 @@ const projects = [
     align-items: center;
     justify-content: center;
     color: var(--color-white);
-    transition: all 0.3s ease;
+    transition: transform var(--dur-base, 0.3s) var(--ease-out, ease), color var(--dur-base, 0.3s) var(--ease-out, ease), border-color var(--dur-base, 0.3s) var(--ease-out, ease);
   }
 
   .cta-section {
@@ -248,8 +341,16 @@ const projects = [
   }
 
   @media (max-width: 768px) {
+    .project-preview {
+      display: none;
+    }
+
     .work {
       padding: 4rem 2rem;
+    }
+
+    .work-title {
+      font-size: clamp(1.8rem, 9vw, 3rem);
     }
 
     .work-header {

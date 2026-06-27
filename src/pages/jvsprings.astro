@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import heroSec from '../assets/Jv Springs/Hero sec.png';
 import independenceDay from '../assets/Jv Springs/independence day.jpg';
@@ -13,7 +14,7 @@ import ayudaPooja from '../assets/Jv Springs/ayuda pooja.PNG';
 
 <Layout>
   <div class="project-page">
-    <a href="/" class="back-button">
+    <a href="/" class="back-button" data-cursor-hover>
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
@@ -22,14 +23,14 @@ import ayudaPooja from '../assets/Jv Springs/ayuda pooja.PNG';
 
     <div class="project-content">
       <div class="hero-section">
-        <img src={heroSec.src} alt="Hero Background" class="hero-bg-image" />
+        <Image src={heroSec} alt="Hero Background" class="hero-bg-image" width={1920} loading="eager" />
         <div class="hero-content">
           <div class="spacer"></div>
-          
+
           <div class="bottom-section">
-            <p class="logo-label">SOCIAL MEDIA POSTER DESIGN</p>
-            <h1 class="project-name">JVSPRINGS</h1>
-            <div class="project-details">
+            <p class="logo-label reveal">SOCIAL MEDIA POSTER DESIGN</p>
+            <h1 class="project-name reveal">JVSPRINGS</h1>
+            <div class="project-details reveal" data-stagger>
             <div class="detail-item">
               <p class="detail-label">YEAR</p>
               <p class="detail-value">2025</p>
@@ -54,22 +55,22 @@ import ayudaPooja from '../assets/Jv Springs/ayuda pooja.PNG';
         </div>
       </div>
 
-      <div class="mockups-section">
-        <div class="mockup-row-2">
-          <img src={makarSankranthi.src} alt="Makar Sankranti Poster" class="mockup-image" />
-          <img src={specialOffer2.src} alt="Special Offer 2 Poster" class="mockup-image" />
-          <img src={republicDay.src} alt="Republic Day Poster" class="mockup-image" />
+      <div class="mockups-section" data-stagger>
+        <div class="mockup-row-2 reveal">
+          <Image src={makarSankranthi} alt="Makar Sankranti Poster" class="mockup-image" width={600} loading="lazy" data-cursor-hover />
+          <Image src={specialOffer2} alt="Special Offer 2 Poster" class="mockup-image" width={600} loading="lazy" data-cursor-hover />
+          <Image src={republicDay} alt="Republic Day Poster" class="mockup-image" width={600} loading="lazy" data-cursor-hover />
         </div>
-        
-        <div class="mockup-row-2">
-          <img src={ayudaPooja.src} alt="Ayuda Pooja Poster" class="mockup-image" />
-          <img src={independenceDay.src} alt="Independence Day Poster" class="mockup-image" />
-          <img src={ganeshChaturthi.src} alt="Ganesh Chaturthi Poster" class="mockup-image" />
+
+        <div class="mockup-row-2 reveal">
+          <Image src={ayudaPooja} alt="Ayuda Pooja Poster" class="mockup-image" width={600} loading="lazy" data-cursor-hover />
+          <Image src={independenceDay} alt="Independence Day Poster" class="mockup-image" width={600} loading="lazy" data-cursor-hover />
+          <Image src={ganeshChaturthi} alt="Ganesh Chaturthi Poster" class="mockup-image" width={600} loading="lazy" data-cursor-hover />
         </div>
-        
-        <div class="mockup-row-2">
-          <img src={specialOffer.src} alt="Special Offer Poster" class="mockup-image" />
-          <img src={weAreHiring.src} alt="We Are Hiring Poster" class="mockup-image" />
+
+        <div class="mockup-row-2 reveal">
+          <Image src={specialOffer} alt="Special Offer Poster" class="mockup-image" width={600} loading="lazy" data-cursor-hover />
+          <Image src={weAreHiring} alt="We Are Hiring Poster" class="mockup-image" width={600} loading="lazy" data-cursor-hover />
         </div>
       </div>
     </div>
@@ -173,11 +174,11 @@ import ayudaPooja from '../assets/Jv Springs/ayuda pooja.PNG';
   }
 
   .project-name {
-    font-size: 4rem;
-    font-weight: 700;
+    font-size: clamp(2.8rem, 8vw, 6rem);
+    font-weight: 800;
     color: #FF0000;
     margin: 0 0 2rem 0;
-    letter-spacing: 0.05em;
+    letter-spacing: -0.02em;
   }
 
   .project-details {
@@ -354,7 +355,7 @@ import ayudaPooja from '../assets/Jv Springs/ayuda pooja.PNG';
 
   @media (max-width: 768px) {
     .project-name {
-      font-size: 2.5rem;
+      font-size: clamp(1.7rem, 9vw, 3.2rem);
     }
 
     .project-details {

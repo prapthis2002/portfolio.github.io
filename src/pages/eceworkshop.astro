@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import heroSec from '../assets/ECE worshop/Hero sec.png';
 import webflow from '../assets/ECE worshop/webflow.png';
@@ -8,7 +9,7 @@ import modern from '../assets/ECE worshop/modern.png';
 
 <Layout>
   <div class="project-page">
-    <a href="/" class="back-button">
+    <a href="/" class="back-button" data-cursor-hover>
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
@@ -17,14 +18,14 @@ import modern from '../assets/ECE worshop/modern.png';
 
     <div class="project-content">
       <div class="hero-section">
-        <img src={heroSec.src} alt="Hero Background" class="hero-bg-image" />
+        <Image src={heroSec} alt="Hero Background" class="hero-bg-image" width={1920} loading="eager" />
         <div class="hero-content">
           <div class="spacer"></div>
-          
+
           <div class="bottom-section">
-            <p class="logo-label">LANDING PAGE</p>
-            <h1 class="project-name">ECE Workshop</h1>
-            <div class="project-details">
+            <p class="logo-label reveal">LANDING PAGE</p>
+            <h1 class="project-name reveal">ECE Workshop</h1>
+            <div class="project-details reveal" data-stagger>
             <div class="detail-item">
               <p class="detail-label">YEAR</p>
               <p class="detail-value">2025</p>
@@ -49,7 +50,7 @@ import modern from '../assets/ECE worshop/modern.png';
         </div>
       </div>
 
-      <div class="description-section">
+      <div class="description-section reveal">
         <h2 class="section-title">OVERVIEW</h2>
         
         <div class="overview-content">
@@ -70,14 +71,14 @@ import modern from '../assets/ECE worshop/modern.png';
           </div>
         </div>
 
-        <div class="challenge-section">
+        <div class="challenge-section reveal">
           <h3 class="section-subtitle">THE CHALLENGE</h3>
           <p class="description-text">
             How might we design a workshop website that feels formal and academic, while still being modern, readable, and engaging for students?
           </p>
         </div>
 
-        <div class="objective-section">
+        <div class="objective-section reveal">
           <h3 class="section-subtitle">THE OBJECTIVE</h3>
           <p class="description-text">
             The primary goal of this project was to design a static academic workshop website that:
@@ -94,7 +95,7 @@ import modern from '../assets/ECE worshop/modern.png';
           </p>
         </div>
 
-        <div class="design-approach-section">
+        <div class="design-approach-section reveal">
           <h3 class="section-subtitle">DESIGN APPROACH</h3>
           <p class="description-text">
             Before jumping into visuals, I defined a clear direction for the project. This design follows Version A – Academic / Institutional style, characterized by:
@@ -111,17 +112,17 @@ import modern from '../assets/ECE worshop/modern.png';
           </p>
         </div>
 
-        <div class="flow-section">
+        <div class="flow-section reveal">
           <h3 class="section-subtitle">PAGE FLOW & INFORMATION ARCHITECTURE</h3>
           <div class="flow-image-wrapper">
-            <img src={webflow.src} alt="ECE Workshop Website User Flow & Information Architecture" class="flow-image" />
+            <Image src={webflow} alt="ECE Workshop Website User Flow & Information Architecture" class="flow-image" width={1400} loading="lazy" />
           </div>
         </div>
 
-        <div class="visual-design-section">
+        <div class="visual-design-section reveal">
           <h3 class="section-subtitle">VISUAL DESIGN SYSTEM</h3>
           <div class="visual-design-image-wrapper">
-            <img src={letsLearn.src} alt="Visual Design System" class="visual-design-image" />
+            <Image src={letsLearn} alt="Visual Design System" class="visual-design-image" width={1400} loading="lazy" />
           </div>
 
           <div class="design-details">
@@ -141,9 +142,9 @@ import modern from '../assets/ECE worshop/modern.png';
           </div>
         </div>
 
-        <div class="key-design-section">
+        <div class="key-design-section reveal">
           <div class="key-design-image-wrapper">
-            <img src={modern.src} alt="Key Design Decisions" class="key-design-image" />
+            <Image src={modern} alt="Key Design Decisions" class="key-design-image" width={1400} loading="lazy" />
           </div>
 
           <h3 class="section-subtitle">KEY DESIGN DECISIONS</h3>
@@ -274,11 +275,11 @@ import modern from '../assets/ECE worshop/modern.png';
   }
 
   .project-name {
-    font-size: 4rem;
-    font-weight: 700;
+    font-size: clamp(2.8rem, 8vw, 6rem);
+    font-weight: 800;
     color: #FF0000;
     margin: 0 0 2rem 0;
-    letter-spacing: 0.05em;
+    letter-spacing: -0.02em;
   }
 
   .project-details {
@@ -550,7 +551,7 @@ import modern from '../assets/ECE worshop/modern.png';
 
   @media (max-width: 768px) {
     .project-name {
-      font-size: 2.5rem;
+      font-size: clamp(1.7rem, 9vw, 3.2rem);
     }
 
     .project-details {

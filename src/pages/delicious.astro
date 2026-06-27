@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import poster1 from '../assets/Delicious/KOREAN CHICKEN POSTER.png';
 import poster2 from '../assets/Delicious/poster design.png';
@@ -7,7 +8,7 @@ import poster3 from '../assets/Delicious/delcious 2.png';
 
 <Layout>
   <div class="project-page">
-    <a href="/" class="back-button">
+    <a href="/" class="back-button" data-cursor-hover>
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
@@ -19,7 +20,7 @@ import poster3 from '../assets/Delicious/delcious 2.png';
         <div class="hero-content">
           <div class="carousel-wrapper">
             <div class="carousel-container">
-              <button class="carousel-nav prev" aria-label="Previous">
+              <button class="carousel-nav prev" aria-label="Previous" data-cursor-hover>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
@@ -27,17 +28,17 @@ import poster3 from '../assets/Delicious/delcious 2.png';
               
               <div class="carousel-track">
                 <div class="carousel-item active">
-                  <img src={poster1.src} alt="Korean Fried Chicken Poster" />
+                  <Image src={poster1} alt="Korean Fried Chicken Poster" width={900} loading="eager" />
                 </div>
                 <div class="carousel-item">
-                  <img src={poster2.src} alt="Delicious Poster Design" />
+                  <Image src={poster2} alt="Delicious Poster Design" width={900} loading="lazy" />
                 </div>
                 <div class="carousel-item">
-                  <img src={poster3.src} alt="Delicious Poster 2" />
+                  <Image src={poster3} alt="Delicious Poster 2" width={900} loading="lazy" />
                 </div>
               </div>
               
-              <button class="carousel-nav next" aria-label="Next">
+              <button class="carousel-nav next" aria-label="Next" data-cursor-hover>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
@@ -46,9 +47,9 @@ import poster3 from '../assets/Delicious/delcious 2.png';
           </div>
           
           <div class="bottom-section">
-            <p class="logo-label">POSTER DESIGN</p>
-            <h1 class="project-name">DELICIOUS</h1>
-            <div class="project-details">
+            <p class="logo-label reveal">POSTER DESIGN</p>
+            <h1 class="project-name reveal">DELICIOUS</h1>
+            <div class="project-details reveal" data-stagger>
               <div class="detail-item">
                 <p class="detail-label">YEAR</p>
                 <p class="detail-value">2025</p>
@@ -56,7 +57,7 @@ import poster3 from '../assets/Delicious/delcious 2.png';
 
               <div class="detail-item">
                 <p class="detail-label">PROJECT</p>
-                <p class="detail-value">Educational Institute</p>
+                <p class="detail-value">Poster Design</p>
               </div>
 
               <div class="detail-item">
@@ -73,12 +74,12 @@ import poster3 from '../assets/Delicious/delcious 2.png';
         </div>
       </div>
 
-      <div class="description-section">
+      <div class="description-section reveal">
         <h2 class="section-title">OVERVIEW</h2>
         <p class="description-text">
           For this exploration, the goal was to design three promotional posters for a fictional brand named "Delicious" featuring Sushi, Korean Fried Chicken, and Chicken Ramen. Each layout focuses on appetite appeal, strong typography, and clear offers like "Upto 50% off" and "Free home delivery" to mirror real-world social media and print promotions.
         </p>
-        
+
         <div class="visual-direction">
           <h3 class="strategy-title">VISUAL DIRECTION</h3>
           <p class="strategy-text">
@@ -87,7 +88,7 @@ import poster3 from '../assets/Delicious/delcious 2.png';
         </div>
       </div>
 
-      <div class="color-palette">
+      <div class="color-palette reveal">
         <h3 class="palette-title">COLOR PALETTE</h3>
         <div class="color-swatches">
           <div class="color-swatch" style="background-color: #F30000;">
@@ -102,7 +103,7 @@ import poster3 from '../assets/Delicious/delcious 2.png';
         </div>
       </div>
 
-      <div class="typography-section">
+      <div class="typography-section reveal">
         <h2 class="section-title">TYPOGRAPHY CHOICES</h2>
         <div class="font-showcase">
           <h3 class="font-name">DM SERIF TEXT</h3>
@@ -114,9 +115,9 @@ import poster3 from '../assets/Delicious/delcious 2.png';
         </ul>
       </div>
 
-      <div class="next-project">
+      <div class="next-project reveal">
         <p class="next-label">NEXT PROJECT</p>
-        <a href="/gowaterz" class="next-link">
+        <a href="/gowaterz" class="next-link" data-cursor-hover>
           <span class="next-title">GOWATERZ</span>
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -248,11 +249,11 @@ import poster3 from '../assets/Delicious/delcious 2.png';
   }
 
   .project-name {
-    font-size: 4rem;
-    font-weight: 700;
+    font-size: clamp(3rem, 9vw, 6.5rem);
+    font-weight: 800;
     color: #FF0000;
     margin: 0 0 2rem 0;
-    letter-spacing: 0.05em;
+    letter-spacing: -0.02em;
   }
 
   .project-details {
@@ -580,6 +581,10 @@ import poster3 from '../assets/Delicious/delcious 2.png';
   }
 
   @media (max-width: 768px) {
+    .project-name {
+      font-size: clamp(1.7rem, 9vw, 3.2rem);
+    }
+
     .hero-content {
       padding: 1.25rem 1.25rem 1.5rem 1.25rem;
     }

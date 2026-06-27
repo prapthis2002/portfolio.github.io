@@ -1,25 +1,26 @@
 ---
 // You can import a different image for the about section if available
+import { Image } from 'astro:assets';
 import profileImg from '../assets/IMG_9708.JPG';
 ---
 
 <section class="about" id="about">
   <div class="about-container">
-    <h2 class="about-title">ABOUT ME</h2>
-    
-    <div class="about-content">
+    <h2 class="about-title reveal">ABOUT ME</h2>
+
+    <div class="about-content" data-stagger>
       <div class="about-left">
-        <div class="about-section">
+        <div class="about-section reveal">
           <h3 class="section-label">WHAT I DO</h3>
           <p class="section-text">I enjoy turning ideas into visuals that not only look good but also make sense.</p>
         </div>
 
-        <div class="about-section">
+        <div class="about-section reveal">
           <h3 class="section-label">MY BACKGROUND</h3>
           <p class="section-text">Started as a logistics intern but ended up designing social media posts. That's where my first real design journey kicked off.</p>
         </div>
 
-        <div class="about-section">
+        <div class="about-section reveal">
           <h3 class="section-label">MY APPROACH</h3>
           <p class="section-text">My process is simple:</p>
           <ul class="approach-list">
@@ -30,7 +31,7 @@ import profileImg from '../assets/IMG_9708.JPG';
           <p class="section-text">I believe good design doesn't need long explanations. If it works, you feel it. If it doesn't... I redesign it.</p>
         </div>
 
-        <div class="about-section">
+        <div class="about-section reveal">
           <h3 class="section-label">CAREER</h3>
           <div class="career-item">
             <span class="career-date">[2023 - Present]</span>
@@ -41,42 +42,46 @@ import profileImg from '../assets/IMG_9708.JPG';
             <span class="career-role">Junior Procurement at Primacy Industries Pvt. Ltd.</span>
           </div>
           <div class="career-item">
-            <span class="career-date">[Jul 2024 - Present]</span>
+            <span class="career-date">[Jul 2024 - Feb 2026]</span>
             <span class="career-role">Visual Designer at MRR Technology Solutions Pvt. Ltd.</span>
+          </div>
+          <div class="career-item">
+            <span class="career-date">[Mar 2026 - Present]</span>
+            <span class="career-role">Visual Designer at Grojet Private Limited</span>
           </div>
         </div>
 
-        <div class="about-section">
+        <div class="about-section reveal">
           <h3 class="section-label">TOOLS & TECHNOLOGIES</h3>
           <div class="tags">
             <span class="tag">Figma</span>
-            <span class="tag">Indesign</span>
+            <span class="tag">InDesign</span>
             <span class="tag">Illustrator</span>
             <span class="tag">Photoshop</span>
-            <span class="tag">Copout</span>
+            <span class="tag">CapCut</span>
             <span class="tag">Canva</span>
           </div>
         </div>
 
-        <div class="about-section">
+        <div class="about-section reveal">
           <h3 class="section-label">TOOLS & TECHNOLOGIES</h3>
           <div class="tags">
             <span class="tag">UI/UX Design</span>
             <span class="tag">Visual Design</span>
             <span class="tag">Prototyping</span>
             <span class="tag">Creative thinking</span>
-            <span class="tag">Copout</span>
+            <span class="tag">CapCut</span>
           </div>
         </div>
       </div>
 
-      <div class="about-right">
+      <div class="about-right reveal-scale">
         <div class="photo-container">
-          <img src={profileImg.src} alt="Prapthi S" class="profile-photo" />
+          <Image src={profileImg} alt="Prapthi S" class="profile-photo" width={800} loading="lazy" />
         </div>
         <div class="cta-buttons">
-          <a href="#contact" class="cta-btn">CONTACT ME</a>
-          <a href="#work" class="cta-btn">FEATURED WORK</a>
+          <a href="#contact" class="cta-btn" data-cursor-hover>CONTACT ME</a>
+          <a href="#work" class="cta-btn" data-cursor-hover>FEATURED WORK</a>
         </div>
       </div>
     </div>
@@ -100,10 +105,10 @@ import profileImg from '../assets/IMG_9708.JPG';
 
   .about-title {
     font-family: var(--font-syne);
-    font-size: clamp(2.5rem, 5vw, 3.5rem);
-    font-weight: 700;
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
+    font-weight: 800;
     margin: 0 0 4rem 0;
-    letter-spacing: 2px;
+    letter-spacing: -0.02em;
   }
 
   .about-content {
@@ -191,6 +196,13 @@ import profileImg from '../assets/IMG_9708.JPG';
     padding: 0.6rem 1.5rem;
     border-radius: 50px;
     border: 1px solid #3a3a3a;
+    transition: border-color var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+  }
+
+  .tag:hover {
+    border-color: var(--color-red);
+    color: var(--color-red);
+    transform: translateY(-2px);
   }
 
   .about-right {
