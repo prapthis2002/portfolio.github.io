@@ -1,0 +1,944 @@
+---
+import { Image, getImage } from 'astro:assets';
+import Layout from '../layouts/Layout.astro';
+import toteMockup from '../assets/Grojet/tote-mockup.webp';
+import toteFlat from '../assets/Grojet/tote-flat.webp';
+import festiveVishu from '../assets/Grojet/festive-vishu.webp';
+import festiveRamNavami from '../assets/Grojet/festive-ramnavami.webp';
+import festiveEid from '../assets/Grojet/festive-eid.webp';
+import merchantNila from '../assets/Grojet/merchant-nila.webp';
+import merchantCanara from '../assets/Grojet/merchant-canara.webp';
+import merchantBhatnbhat from '../assets/Grojet/merchant-bhatnbhat.webp';
+import tyCard from '../assets/Grojet/ty-card.webp';
+
+const optimizedHero = await getImage({ src: toteMockup, width: 1200, format: 'webp', quality: 82 });
+
+const features = [
+  {
+    label: 'Multiple Campaigns',
+    icon: 'M12 2l2.4 6.6 7 .3-5.6 4.3 2 6.8-5.8-4-5.8 4 2-6.8L2.6 8.9l7-.3L12 2z',
+  },
+  {
+    label: 'Print & Digital Assets',
+    icon: 'M19 21H5a2 2 0 0 1-2-2V8l5-5h8l5 5v11a2 2 0 0 1-2 2zM8 3v5H3M16 13H8m8 4H8',
+  },
+  {
+    label: 'Illustration & Doodling',
+    icon: 'M17 3a2.85 2.85 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z',
+  },
+  {
+    label: 'Brand Experience',
+    icon: 'M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 1 1 18 0z M12 11.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4z',
+  },
+];
+
+const checklist = [
+  'Celebrate festivals and local culture',
+  'Support local merchants and partnerships',
+  'Create memorable unboxing & brand moments',
+];
+
+const stats = [
+  { value: '15+', label: 'Design Assets' },
+  { value: '6+', label: 'Campaigns' },
+  { value: '100%', label: 'Mangalore Inspired' },
+];
+
+const categories = [
+  {
+    number: '01',
+    key: 'festival',
+    title: 'Festival Posters',
+    description: 'Celebrating festivals with local flavor and festive vibes.',
+    layout: 'row3',
+    images: [
+      { src: festiveRamNavami, alt: 'Happy Ram Navami festive poster' },
+      { src: festiveEid, alt: 'Eid Mubarak festive poster' },
+      { src: festiveVishu, alt: 'Happy Vishu festive poster' },
+    ],
+  },
+  {
+    number: '02',
+    key: 'merchant',
+    title: 'Merchant Stories',
+    description: 'Highlighting local businesses we partner with.',
+    layout: 'row3',
+    images: [
+      { src: merchantCanara, alt: 'Grojet x Canara Farms fresh milk campaign' },
+      { src: merchantBhatnbhat, alt: "Grojet x Bhat 'n' Bhat pickle campaign" },
+      { src: merchantNila, alt: 'Grojet x Nila coffee & brownie campaign' },
+    ],
+  },
+  {
+    number: '03',
+    key: 'thankyou',
+    title: 'Thank You Card',
+    description: 'Turning unboxing into a fun and interactive experience.',
+    layout: 'single',
+    images: [
+      { src: tyCard, alt: 'Grojet thank-you card with Mangalore-themed puzzle' },
+    ],
+  },
+  {
+    number: '04',
+    key: 'merchandise',
+    title: 'Merchandise',
+    description: 'Mangalore doodle tote bag design.',
+    layout: 'single',
+    compact: true,
+    images: [
+      { src: toteFlat, alt: 'Grojet branded tote bag flat design' },
+    ],
+  },
+];
+
+const filters = [
+  { label: 'All', key: 'all' },
+  ...categories.map((c) => ({ label: c.title, key: c.key })),
+];
+
+const designProcess = [
+  { label: 'Research & Inspiration', icon: 'M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14zM21 21l-4.3-4.3' },
+  { label: 'Concept & Sketching', icon: 'M17 3a2.85 2.85 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z' },
+  { label: 'Design & Iteration', icon: 'M20.6 13.4 12.5 21.5a2 2 0 0 1-2.8 0l-6.2-6.2a2 2 0 0 1 0-2.8L11.6 4.4a2 2 0 0 1 1.4-.6H19a2 2 0 0 1 2 2v6.2a2 2 0 0 1-.4 1.4zM16.5 8.5h.01' },
+  { label: 'Final Delivery', icon: 'M19 21H5a2 2 0 0 1-2-2V8l5-5h8l5 5v11a2 2 0 0 1-2 2zM8 3v5H3M8 13h8' },
+];
+
+const impact = [
+  { label: 'Stronger local brand presence', icon: 'M12 2 4 5v6c0 5.5 3.8 8.7 8 11 4.2-2.3 8-5.5 8-11V5l-8-3z' },
+  { label: 'Enhanced customer engagement', icon: 'M7 14a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM17 14a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM7 14c-2.2 0-4 1.5-4 3.5V19h8v-1.5c0-2-1.8-3.5-4-3.5zM17 14c-.8 0-1.6.15-2.3.45.8.85 1.3 1.95 1.3 3.05V19h6v-1.5c0-2-1.8-3.5-4-3.5z' },
+  { label: 'Built emotional connection', icon: 'M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z' },
+];
+---
+
+<Layout>
+  <div class="project-page">
+    <header class="grojet-header">
+      <a href="/" class="back-button" data-cursor-hover>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        BACK
+      </a>
+      <span class="header-title">GROJET</span>
+      <svg class="menu-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </header>
+
+    <div class="project-content">
+      <section class="hero-section">
+        <p class="logo-label reveal">BRAND & MARKETING DESIGN</p>
+        <h1 class="project-name reveal">GROJET</h1>
+        <p class="project-subtitle reveal">Visual Experience Design</p>
+        <p class="project-description reveal">
+          A series of marketing and brand assets designed for Grojet, Mangalore's trusted grocery & delivery app, to strengthen local connect, celebrate culture, and build a memorable brand experience.
+        </p>
+
+        <div class="hero-image-wrapper reveal-scale">
+          <img src={optimizedHero.src} alt="Grojet branded tote bag lifestyle mockup" class="hero-image" />
+          <div class="mangalore-badge">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 21s-7-7.5-7-12a7 7 0 1 1 14 0c0 4.5-7 12-7 12z" stroke="currentColor" stroke-width="2"/>
+              <circle cx="12" cy="9" r="2.5" stroke="currentColor" stroke-width="2"/>
+            </svg>
+            <span>MANGALORE<br />AT HEART</span>
+          </div>
+        </div>
+
+        <div class="features-row reveal" data-stagger>
+          {features.map((f) => (
+            <div class="feature-item">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d={f.icon} stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>{f.label}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="overview-section reveal">
+        <h2 class="section-title">Project Overview</h2>
+        <p class="overview-text">
+          The goal was to design marketing collaterals that resonate with Mangalore's culture, support local merchants, and create a delightful brand interaction beyond just delivery.
+        </p>
+        <ul class="checklist">
+          {checklist.map((item) => (
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/>
+                <path d="M8 12.5l2.5 2.5L16 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section class="highlights-section reveal">
+        <h2 class="section-title">Design Highlights</h2>
+        <div class="stats-row">
+          {stats.map((s, i) => (
+            <>
+              {i > 0 && <span class="stat-divider"></span>}
+              <div class="stat-item">
+                <span class="stat-value">{s.value}</span>
+                <span class="stat-label">{s.label}</span>
+              </div>
+            </>
+          ))}
+        </div>
+      </section>
+
+      <section class="quote-section reveal-scale">
+        <svg class="quote-icon" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M7 7c-2.2 0-4 1.8-4 4v6h6v-6H6.2C6.6 9.5 8 8.5 9.5 8.3L9 6c-.7.2-1.4.5-2 1zm10 0c-2.2 0-4 1.8-4 4v6h6v-6h-2.8c.4-1.5 1.8-2.5 3.3-2.7L19 6c-.7.2-1.4.5-2 1z"/>
+        </svg>
+        <p>Designing more than just promotions — building connections.</p>
+      </section>
+
+      <section class="projects-section reveal">
+        <p class="projects-label">PROJECTS</p>
+        <h2 class="projects-heading">What I Designed for Grojet</h2>
+
+        <div class="filter-row" id="filter-row" data-stagger>
+          {filters.map((f, i) => (
+            <button class="filter-pill" data-filter={f.key} aria-pressed={i === 0 ? 'true' : 'false'}>{f.label}</button>
+          ))}
+        </div>
+
+        {categories.map((cat) => (
+          <div class="category-block" data-category={cat.key}>
+            <div class="category-header">
+              <div class="category-heading-group">
+                <span class="category-number">{cat.number}</span>
+                <h3 class="category-title">{cat.title}</h3>
+                <p class="category-desc">{cat.description}</p>
+              </div>
+              <span class="view-all">
+                VIEW ALL
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </div>
+            <div class={`category-images ${cat.layout} ${cat.compact ? 'compact' : ''}`}>
+              {cat.images.map((img) => (
+                <div class="category-image">
+                  <Image src={img.src} alt={img.alt} width={cat.layout === 'single' ? 1000 : 500} loading="lazy" data-cursor-hover />
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </section>
+
+      <section class="process-section reveal">
+        <h2 class="section-title">Design Process</h2>
+        <div class="process-row" data-stagger>
+          {designProcess.map((step, i) => (
+            <>
+              <div class="process-step">
+                <div class="process-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d={step.icon} stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <span>{step.label}</span>
+              </div>
+              {i < designProcess.length - 1 && <span class="process-line"></span>}
+            </>
+          ))}
+        </div>
+      </section>
+
+      <section class="impact-section reveal">
+        <h2 class="section-title">Impact</h2>
+        <div class="impact-row" data-stagger>
+          {impact.map((item) => (
+            <div class="impact-item">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d={item.icon} stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>{item.label}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <a href="/gowaterz" class="next-project-btn reveal" data-cursor-hover>
+        <span class="next-project-text">
+          <span class="next-project-label">NEXT PROJECT</span>
+          <span class="next-project-title">GOWATERZ</span>
+        </span>
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+
+      <footer class="footer">
+        <p>© 2026 Portfolio. All rights reserved.</p>
+      </footer>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  const filterRow = document.getElementById('filter-row');
+  const pills = filterRow?.querySelectorAll<HTMLButtonElement>('.filter-pill');
+  const blocks = document.querySelectorAll<HTMLElement>('.category-block');
+
+  pills?.forEach((pill) => {
+    pill.addEventListener('click', () => {
+      pills.forEach((p) => p.setAttribute('aria-pressed', 'false'));
+      pill.setAttribute('aria-pressed', 'true');
+
+      const filter = pill.dataset.filter;
+      blocks.forEach((block) => {
+        const show = filter === 'all' || block.dataset.category === filter;
+        block.style.display = show ? '' : 'none';
+      });
+    });
+  });
+</script>
+
+<style>
+  :root {
+    --grojet-lime: #DFEC30;
+  }
+
+  .project-page {
+    background-color: #0a0a0a;
+    min-height: 100vh;
+    color: var(--color-white);
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  .grojet-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 2.5rem;
+    z-index: 9998;
+    background: linear-gradient(to bottom, rgba(10, 10, 10, 0.9), transparent);
+  }
+
+  .back-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-white);
+    text-decoration: none;
+    font-family: var(--font-syne);
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 1.5px;
+    transition: color var(--dur-base, 0.3s) var(--ease-out, ease);
+    opacity: 0.9;
+  }
+
+  .back-button:hover {
+    opacity: 1;
+    color: var(--grojet-lime);
+  }
+
+  .back-button svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .header-title {
+    font-family: var(--font-syne);
+    font-weight: 800;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    color: var(--grojet-lime);
+  }
+
+  .menu-icon {
+    color: var(--color-white);
+    opacity: 0.7;
+  }
+
+  .project-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-section {
+    padding: 8rem 3rem 3rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .logo-label {
+    font-family: var(--font-syne);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 1rem;
+  }
+
+  .project-name {
+    font-family: var(--font-syne);
+    font-size: clamp(3rem, 9vw, 6.5rem);
+    font-weight: 800;
+    color: var(--grojet-lime);
+    margin: 0 0 0.5rem 0;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  .project-subtitle {
+    font-family: var(--font-syne);
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    font-weight: 700;
+    color: var(--color-white);
+    margin: 0 0 1.5rem 0;
+  }
+
+  .project-description {
+    font-family: var(--font-syne);
+    font-size: 1rem;
+    line-height: 1.75;
+    color: rgba(255, 255, 255, 0.75);
+    max-width: 640px;
+    margin: 0 0 3rem 0;
+  }
+
+  .hero-image-wrapper {
+    position: relative;
+    margin-bottom: 3rem;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .hero-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 16px;
+  }
+
+  .mangalore-badge {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    background: rgba(10, 10, 10, 0.55);
+    backdrop-filter: blur(4px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+    color: var(--color-white);
+    text-align: center;
+  }
+
+  .mangalore-badge span {
+    font-family: var(--font-syne);
+    font-size: 0.5rem;
+    letter-spacing: 0.1em;
+    line-height: 1.4;
+  }
+
+  .features-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    border-top: 1px solid #2a2a2a;
+    border-bottom: 1px solid #2a2a2a;
+    padding: 2rem 0;
+  }
+
+  .feature-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    text-align: center;
+    color: var(--grojet-lime);
+  }
+
+  .feature-item span {
+    font-family: var(--font-syne);
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 400;
+  }
+
+  .overview-section,
+  .highlights-section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3.5rem 3rem;
+  }
+
+  .section-title {
+    font-family: var(--font-syne);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--grojet-lime);
+    margin: 0 0 1.5rem 0;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--grojet-lime);
+    display: inline-block;
+  }
+
+  .overview-text {
+    font-family: var(--font-syne);
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0 0 2rem 0;
+    max-width: 680px;
+  }
+
+  .checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .checklist li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: var(--font-syne);
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .checklist li svg {
+    flex-shrink: 0;
+    color: var(--grojet-lime);
+  }
+
+  .stats-row {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+  }
+
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .stat-value {
+    font-family: var(--font-syne);
+    font-size: clamp(2rem, 4vw, 2.6rem);
+    font-weight: 800;
+    color: var(--grojet-lime);
+  }
+
+  .stat-label {
+    font-family: var(--font-syne);
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.65);
+  }
+
+  .stat-divider {
+    width: 1px;
+    height: 48px;
+    background: #2a2a2a;
+  }
+
+  .quote-section {
+    max-width: 700px;
+    margin: 0 auto 3rem;
+    padding: 2.5rem;
+    border: 1px solid #2a2a2a;
+    border-radius: 16px;
+    background: rgba(223, 236, 48, 0.04);
+  }
+
+  .quote-icon {
+    color: var(--grojet-lime);
+    margin-bottom: 1rem;
+  }
+
+  .quote-section p {
+    font-family: var(--font-syne);
+    font-size: 1.3rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: var(--color-white);
+    margin: 0;
+  }
+
+  .projects-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 3rem 4rem;
+  }
+
+  .projects-label {
+    font-family: var(--font-syne);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0 0 0.75rem 0;
+  }
+
+  .projects-heading {
+    font-family: var(--font-syne);
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 700;
+    color: var(--color-white);
+    margin: 0 0 1rem 0;
+    padding-bottom: 1rem;
+    border-bottom: 3px solid var(--grojet-lime);
+    display: inline-block;
+  }
+
+  .filter-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin: 2rem 0 3.5rem;
+  }
+
+  .filter-pill {
+    font-family: var(--font-syne);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.75);
+    background-color: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    padding: 0.55rem 1.25rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color var(--dur-base, 0.3s) var(--ease-out, ease), color var(--dur-base, 0.3s) var(--ease-out, ease);
+  }
+
+  .filter-pill[aria-pressed="true"] {
+    background-color: var(--grojet-lime);
+    color: #0a0a0a;
+    border-color: var(--grojet-lime);
+  }
+
+  .category-block {
+    padding: 2.5rem 0;
+    border-bottom: 1px solid #2a2a2a;
+  }
+
+  .category-block:last-child {
+    border-bottom: none;
+  }
+
+  .category-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .category-number {
+    font-family: var(--font-syne);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--grojet-lime);
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+
+  .category-title {
+    font-family: var(--font-syne);
+    font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+    font-weight: 800;
+    color: var(--grojet-lime);
+    letter-spacing: 0.02em;
+    margin: 0 0 0.5rem 0;
+    text-transform: uppercase;
+  }
+
+  .category-desc {
+    font-family: var(--font-syne);
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0;
+    max-width: 420px;
+  }
+
+  .view-all {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-syne);
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--grojet-lime);
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 0.3rem;
+  }
+
+  .category-images {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .category-images.row3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .category-images.single {
+    grid-template-columns: 1fr;
+  }
+
+  .category-images.compact {
+    max-width: 420px;
+  }
+
+  .category-image {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #2a2a2a;
+  }
+
+  .category-images.row3 .category-image img {
+    aspect-ratio: 3 / 4;
+  }
+
+  .category-images.compact .category-image img {
+    aspect-ratio: 1 / 1;
+  }
+
+  .category-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform var(--dur-base, 0.3s) var(--ease-out, ease);
+  }
+
+  .category-image:hover img {
+    transform: scale(1.04);
+  }
+
+  .process-section,
+  .impact-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 3rem;
+  }
+
+  .process-row {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin-top: 2.5rem;
+  }
+
+  .process-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.85rem;
+    text-align: center;
+    width: 140px;
+    flex-shrink: 0;
+  }
+
+  .process-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 1px solid #2a2a2a;
+    background: #161616;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--grojet-lime);
+  }
+
+  .process-step span {
+    font-family: var(--font-syne);
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.75);
+  }
+
+  .process-line {
+    flex: 1;
+    height: 1px;
+    background: #2a2a2a;
+    margin: 0 -0.5rem;
+    transform: translateY(-22px);
+  }
+
+  .impact-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .impact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--grojet-lime);
+  }
+
+  .impact-item span {
+    font-family: var(--font-syne);
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .next-project-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: calc(100% - 6rem);
+    max-width: 1200px;
+    margin: 2rem auto 0;
+    background-color: var(--grojet-lime);
+    border-radius: 20px;
+    padding: 2rem 2.5rem;
+    text-decoration: none;
+    transition: transform var(--dur-base, 0.3s) var(--ease-out, ease);
+  }
+
+  .next-project-btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .next-project-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .next-project-label {
+    font-family: var(--font-syne);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: rgba(10, 10, 10, 0.6);
+  }
+
+  .next-project-title {
+    font-family: var(--font-syne);
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    font-weight: 800;
+    color: #0a0a0a;
+    letter-spacing: -0.02em;
+  }
+
+  .next-project-btn svg {
+    color: #0a0a0a;
+    flex-shrink: 0;
+  }
+
+  .footer {
+    padding: 3rem 3rem 2rem;
+    text-align: center;
+  }
+
+  .footer p {
+    font-family: var(--font-syne);
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.3);
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .grojet-header {
+      padding: 1.25rem 1.25rem;
+    }
+
+    .hero-section {
+      padding: 6rem 1.25rem 2rem;
+    }
+
+    .features-row {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem 1rem;
+    }
+
+    .overview-section,
+    .highlights-section {
+      padding: 2.5rem 1.25rem;
+    }
+
+    .stats-row {
+      gap: 1.25rem;
+    }
+
+    .stat-divider {
+      height: 36px;
+    }
+
+    .quote-section {
+      margin: 0 1.25rem 2.5rem;
+      padding: 1.75rem;
+    }
+
+    .quote-section p {
+      font-size: 1.1rem;
+    }
+
+    .projects-section {
+      padding: 1rem 1.25rem 3rem;
+    }
+
+    .category-header {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .category-images.row3 {
+      grid-template-columns: 1fr;
+    }
+
+    .process-section,
+    .impact-section {
+      padding: 2.5rem 1.25rem;
+    }
+
+    .process-row {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem 0.5rem;
+    }
+
+    .process-line {
+      display: none;
+    }
+
+    .impact-row {
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .next-project-btn {
+      width: calc(100% - 2.5rem);
+      margin: 1.5rem 1.25rem 0;
+      padding: 1.5rem 1.5rem;
+    }
+
+    .footer {
+      padding: 2.5rem 1.25rem;
+    }
+  }
+</style>

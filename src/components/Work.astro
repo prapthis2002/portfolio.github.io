@@ -1,16 +1,24 @@
 ---
 import { getImage } from 'astro:assets';
+import grojetImg from '../assets/Grojet/tote-mockup.webp';
 import eceImg from '../assets/ECE worshop/Hero sec.png';
 import gowaterzImg from '../assets/goWaterz/gowaterzHero.png';
 import deliciousImg from '../assets/Delicious/poster design.png';
 import jvImg from '../assets/Jv Springs/Hero sec.png';
 
+const grojetThumb = await getImage({ src: grojetImg, width: 480, format: 'webp', quality: 75 });
 const eceThumb = await getImage({ src: eceImg, width: 480, format: 'webp', quality: 75 });
 const gowaterzThumb = await getImage({ src: gowaterzImg, width: 480, format: 'webp', quality: 75 });
 const deliciousThumb = await getImage({ src: deliciousImg, width: 480, format: 'webp', quality: 75 });
 const jvThumb = await getImage({ src: jvImg, width: 480, format: 'webp', quality: 75 });
 
 const projects = [
+  {
+    title: "Grojet",
+    category: "BRAND & MARKETING DESIGN",
+    link: "/grojet",
+    preview: grojetThumb.src
+  },
   {
     title: "Tripzzie",
     category: "WEBSITE DESIGN",
