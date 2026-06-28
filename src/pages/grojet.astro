@@ -1,7 +1,6 @@
 ---
 import { Image, getImage } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
-import toteMockup from '../assets/Grojet/tote-mockup.webp';
 import toteFlat from '../assets/Grojet/tote-flat.webp';
 import festiveVishu from '../assets/Grojet/festive-vishu.webp';
 import festiveRamNavami from '../assets/Grojet/festive-ramnavami.webp';
@@ -11,26 +10,7 @@ import merchantCanara from '../assets/Grojet/merchant-canara.webp';
 import merchantBhatnbhat from '../assets/Grojet/merchant-bhatnbhat.webp';
 import tyCard from '../assets/Grojet/ty-card.webp';
 
-const optimizedHero = await getImage({ src: toteMockup, width: 1200, format: 'webp', quality: 82 });
-
-const features = [
-  {
-    label: 'Multiple Campaigns',
-    icon: 'M12 2l2.4 6.6 7 .3-5.6 4.3 2 6.8-5.8-4-5.8 4 2-6.8L2.6 8.9l7-.3L12 2z',
-  },
-  {
-    label: 'Print & Digital Assets',
-    icon: 'M19 21H5a2 2 0 0 1-2-2V8l5-5h8l5 5v11a2 2 0 0 1-2 2zM8 3v5H3M16 13H8m8 4H8',
-  },
-  {
-    label: 'Illustration & Doodling',
-    icon: 'M17 3a2.85 2.85 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z',
-  },
-  {
-    label: 'Brand Experience',
-    icon: 'M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 1 1 18 0z M12 11.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4z',
-  },
-];
+const optimizedHeroBg = await getImage({ src: festiveVishu, width: 1920, format: 'webp', quality: 75 });
 
 const checklist = [
   'Celebrate festivals and local culture',
@@ -113,48 +93,47 @@ const impact = [
 
 <Layout>
   <div class="project-page">
-    <header class="grojet-header">
-      <a href="/" class="back-button" data-cursor-hover>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        BACK
-      </a>
-      <span class="header-title">GROJET</span>
-      <svg class="menu-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    <a href="/" class="back-button" data-cursor-hover>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
-    </header>
+      BACK
+    </a>
 
     <div class="project-content">
-      <section class="hero-section">
-        <p class="logo-label reveal">BRAND & MARKETING DESIGN</p>
-        <h1 class="project-name reveal">GROJET</h1>
-        <p class="project-subtitle reveal">Visual Experience Design</p>
-        <p class="project-description reveal">
-          A series of marketing and brand assets designed for Grojet, Mangalore's trusted grocery & delivery app, to strengthen local connect, celebrate culture, and build a memorable brand experience.
-        </p>
-
-        <div class="hero-image-wrapper reveal-scale">
-          <img src={optimizedHero.src} alt="Grojet branded tote bag lifestyle mockup" class="hero-image" />
-          <div class="mangalore-badge">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 21s-7-7.5-7-12a7 7 0 1 1 14 0c0 4.5-7 12-7 12z" stroke="currentColor" stroke-width="2"/>
-              <circle cx="12" cy="9" r="2.5" stroke="currentColor" stroke-width="2"/>
-            </svg>
-            <span>MANGALORE<br />AT HEART</span>
+      <section class="hero-section" style={`--hero-bg: url(${optimizedHeroBg.src});`}>
+        <div class="hero-content">
+          <div class="hero-logo-wrap reveal-scale">
+            <img src="/grojet-logo.svg" alt="Grojet logo" class="hero-logo" />
           </div>
-        </div>
 
-        <div class="features-row reveal" data-stagger>
-          {features.map((f) => (
-            <div class="feature-item">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d={f.icon} stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              <span>{f.label}</span>
+          <div class="spacer"></div>
+
+          <div class="bottom-section">
+            <p class="logo-label reveal">BRAND & MARKETING DESIGN</p>
+            <h1 class="project-name reveal">GROJET</h1>
+            <div class="project-details reveal" data-stagger>
+              <div class="detail-item">
+                <p class="detail-label">YEAR</p>
+                <p class="detail-value">2025</p>
+              </div>
+
+              <div class="detail-item">
+                <p class="detail-label">PROJECT</p>
+                <p class="detail-value">Grojet</p>
+              </div>
+
+              <div class="detail-item">
+                <p class="detail-label">ROLE</p>
+                <p class="detail-value">Brand & Marketing Designer</p>
+              </div>
+
+              <div class="detail-item">
+                <p class="detail-label">CATEGORY</p>
+                <p class="detail-value">Brand & Marketing Design</p>
+              </div>
             </div>
-          ))}
+          </div>
         </div>
       </section>
 
@@ -304,10 +283,6 @@ const impact = [
 </script>
 
 <style>
-  :root {
-    --grojet-lime: #DFEC30;
-  }
-
   .project-page {
     background-color: #0a0a0a;
     min-height: 100vh;
@@ -316,20 +291,10 @@ const impact = [
     overflow-x: hidden;
   }
 
-  .grojet-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.5rem 2.5rem;
-    z-index: 9998;
-    background: linear-gradient(to bottom, rgba(10, 10, 10, 0.9), transparent);
-  }
-
   .back-button {
+    position: fixed;
+    top: 2rem;
+    left: 2.5rem;
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -340,30 +305,18 @@ const impact = [
     font-weight: 400;
     letter-spacing: 1.5px;
     transition: color var(--dur-base, 0.3s) var(--ease-out, ease);
+    z-index: 9998;
     opacity: 0.9;
   }
 
   .back-button:hover {
     opacity: 1;
-    color: var(--grojet-lime);
+    color: var(--color-red);
   }
 
   .back-button svg {
     width: 14px;
     height: 14px;
-  }
-
-  .header-title {
-    font-family: var(--font-syne);
-    font-weight: 800;
-    font-size: 1rem;
-    letter-spacing: 2px;
-    color: var(--grojet-lime);
-  }
-
-  .menu-icon {
-    color: var(--color-white);
-    opacity: 0.7;
   }
 
   .project-content {
@@ -372,109 +325,117 @@ const impact = [
   }
 
   .hero-section {
-    padding: 8rem 3rem 3rem;
-    max-width: 900px;
-    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #0a0a0a;
+    position: relative;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .hero-section::before {
+    content: '';
+    position: absolute;
+    inset: -5%;
+    background-image: var(--hero-bg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(26px) brightness(0.32) saturate(0.75);
+    z-index: 0;
+  }
+
+  .hero-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 45%;
+    background: linear-gradient(to top, rgba(10, 10, 10, 1) 0%, rgba(10, 10, 10, 0.85) 30%, transparent 100%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .hero-content {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    z-index: 2;
+  }
+
+  .hero-logo-wrap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -55%);
+    z-index: 2;
+  }
+
+  .hero-logo {
+    display: block;
+    width: clamp(200px, 26vw, 380px);
+    height: auto;
+    border-radius: 28px;
+    filter: drop-shadow(0 30px 70px rgba(0, 0, 0, 0.55));
+  }
+
+  .spacer {
+    flex: 1;
+  }
+
+  .bottom-section {
+    position: relative;
+    z-index: 2;
+    padding: 3rem;
   }
 
   .logo-label {
     font-family: var(--font-syne);
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     letter-spacing: 0.2em;
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(255, 255, 255, 0.7);
     margin-bottom: 1rem;
   }
 
   .project-name {
     font-family: var(--font-syne);
-    font-size: clamp(3rem, 9vw, 6.5rem);
+    font-size: clamp(2.8rem, 8vw, 6rem);
     font-weight: 800;
-    color: var(--grojet-lime);
-    margin: 0 0 0.5rem 0;
+    color: var(--color-red);
+    margin: 0 0 2rem 0;
     letter-spacing: -0.02em;
-    line-height: 1;
   }
 
-  .project-subtitle {
-    font-family: var(--font-syne);
-    font-size: clamp(1.5rem, 4vw, 2.2rem);
-    font-weight: 700;
-    color: var(--color-white);
-    margin: 0 0 1.5rem 0;
-  }
-
-  .project-description {
-    font-family: var(--font-syne);
-    font-size: 1rem;
-    line-height: 1.75;
-    color: rgba(255, 255, 255, 0.75);
-    max-width: 640px;
-    margin: 0 0 3rem 0;
-  }
-
-  .hero-image-wrapper {
-    position: relative;
-    margin-bottom: 3rem;
-    border-radius: 16px;
-    overflow: hidden;
-  }
-
-  .hero-image {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 16px;
-  }
-
-  .mangalore-badge {
-    position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-    width: 84px;
-    height: 84px;
-    border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    background: rgba(10, 10, 10, 0.55);
-    backdrop-filter: blur(4px);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.3rem;
-    color: var(--color-white);
-    text-align: center;
-  }
-
-  .mangalore-badge span {
-    font-family: var(--font-syne);
-    font-size: 0.5rem;
-    letter-spacing: 0.1em;
-    line-height: 1.4;
-  }
-
-  .features-row {
+  .project-details {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
-    border-top: 1px solid #2a2a2a;
-    border-bottom: 1px solid #2a2a2a;
-    padding: 2rem 0;
+    gap: 2rem;
+    max-width: 1200px;
   }
 
-  .feature-item {
+  .detail-item {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 0.75rem;
-    text-align: center;
-    color: var(--grojet-lime);
+    gap: 0.5rem;
   }
 
-  .feature-item span {
+  .detail-label {
     font-family: var(--font-syne);
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.8);
-    font-weight: 400;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0;
+  }
+
+  .detail-value {
+    font-family: var(--font-syne);
+    font-size: 1rem;
+    color: #fff;
+    margin: 0;
   }
 
   .overview-section,
@@ -490,10 +451,10 @@ const impact = [
     font-weight: 700;
     letter-spacing: 0.25em;
     text-transform: uppercase;
-    color: var(--grojet-lime);
+    color: var(--color-red);
     margin: 0 0 1.5rem 0;
     padding-bottom: 0.75rem;
-    border-bottom: 2px solid var(--grojet-lime);
+    border-bottom: 2px solid var(--color-red);
     display: inline-block;
   }
 
@@ -526,7 +487,7 @@ const impact = [
 
   .checklist li svg {
     flex-shrink: 0;
-    color: var(--grojet-lime);
+    color: var(--color-red);
   }
 
   .stats-row {
@@ -545,7 +506,7 @@ const impact = [
     font-family: var(--font-syne);
     font-size: clamp(2rem, 4vw, 2.6rem);
     font-weight: 800;
-    color: var(--grojet-lime);
+    color: var(--color-red);
   }
 
   .stat-label {
@@ -570,7 +531,7 @@ const impact = [
   }
 
   .quote-icon {
-    color: var(--grojet-lime);
+    color: var(--color-red);
     margin-bottom: 1rem;
   }
 
@@ -604,7 +565,7 @@ const impact = [
     color: var(--color-white);
     margin: 0 0 1rem 0;
     padding-bottom: 1rem;
-    border-bottom: 3px solid var(--grojet-lime);
+    border-bottom: 3px solid var(--color-red);
     display: inline-block;
   }
 
@@ -629,9 +590,9 @@ const impact = [
   }
 
   .filter-pill[aria-pressed="true"] {
-    background-color: var(--grojet-lime);
-    color: #0a0a0a;
-    border-color: var(--grojet-lime);
+    background-color: var(--color-red);
+    color: var(--color-white);
+    border-color: var(--color-red);
   }
 
   .category-block {
@@ -655,7 +616,7 @@ const impact = [
     font-family: var(--font-syne);
     font-size: 0.85rem;
     font-weight: 700;
-    color: var(--grojet-lime);
+    color: var(--color-red);
     display: block;
     margin-bottom: 0.4rem;
   }
@@ -664,7 +625,7 @@ const impact = [
     font-family: var(--font-syne);
     font-size: clamp(1.3rem, 2.5vw, 1.7rem);
     font-weight: 800;
-    color: var(--grojet-lime);
+    color: var(--color-red);
     letter-spacing: 0.02em;
     margin: 0 0 0.5rem 0;
     text-transform: uppercase;
@@ -685,7 +646,7 @@ const impact = [
     font-family: var(--font-syne);
     font-size: 0.8rem;
     font-weight: 700;
-    color: var(--grojet-lime);
+    color: var(--color-red);
     letter-spacing: 0.05em;
     white-space: nowrap;
     flex-shrink: 0;
@@ -768,7 +729,7 @@ const impact = [
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--grojet-lime);
+    color: var(--color-red);
   }
 
   .process-step span {
@@ -796,7 +757,7 @@ const impact = [
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    color: var(--grojet-lime);
+    color: var(--color-red);
   }
 
   .impact-item span {
@@ -812,7 +773,7 @@ const impact = [
     width: calc(100% - 6rem);
     max-width: 1200px;
     margin: 2rem auto 0;
-    background-color: var(--grojet-lime);
+    background-color: var(--color-red);
     border-radius: 20px;
     padding: 2rem 2.5rem;
     text-decoration: none;
@@ -834,19 +795,19 @@ const impact = [
     font-size: 0.65rem;
     font-weight: 700;
     letter-spacing: 2px;
-    color: rgba(10, 10, 10, 0.6);
+    color: rgba(255, 255, 255, 0.7);
   }
 
   .next-project-title {
     font-family: var(--font-syne);
     font-size: clamp(1.8rem, 5vw, 3rem);
     font-weight: 800;
-    color: #0a0a0a;
+    color: var(--color-white);
     letter-spacing: -0.02em;
   }
 
   .next-project-btn svg {
-    color: #0a0a0a;
+    color: var(--color-white);
     flex-shrink: 0;
   }
 
@@ -863,17 +824,45 @@ const impact = [
   }
 
   @media (max-width: 768px) {
-    .grojet-header {
-      padding: 1.25rem 1.25rem;
+    .back-button {
+      top: 1.25rem;
+      left: 1.25rem;
+      font-size: 0.65rem;
+      gap: 0.4rem;
     }
 
-    .hero-section {
-      padding: 6rem 1.25rem 2rem;
+    .back-button svg {
+      width: 12px;
+      height: 12px;
     }
 
-    .features-row {
+    .hero-content {
+      padding: 1.5rem 1.25rem 2rem 1.25rem;
+      min-height: 100vh;
+    }
+
+    .hero-logo {
+      width: clamp(140px, 42vw, 220px);
+    }
+
+    .bottom-section {
+      padding: 1.5rem 1.25rem 2rem 1.25rem;
+    }
+
+    .project-details {
       grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem 1rem;
+      gap: 1.25rem 0.75rem;
+    }
+
+    .project-name {
+      font-size: clamp(1.7rem, 9vw, 3.2rem);
+      line-height: 0.9;
+    }
+
+    .logo-label {
+      font-size: 0.5rem;
+      letter-spacing: 2.5px;
+      margin-bottom: 0.5rem;
     }
 
     .overview-section,
