@@ -2,6 +2,7 @@
 import { Image, getImage } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import toteFlat from '../assets/Grojet/tote-flat.webp';
+import toteMockup from '../assets/Grojet/tote-mockup.webp';
 import festiveVishu from '../assets/Grojet/festive-vishu.webp';
 import festiveRamNavami from '../assets/Grojet/festive-ramnavami.webp';
 import festiveEid from '../assets/Grojet/festive-eid.webp';
@@ -9,19 +10,15 @@ import merchantNila from '../assets/Grojet/merchant-nila.webp';
 import merchantCanara from '../assets/Grojet/merchant-canara.webp';
 import merchantBhatnbhat from '../assets/Grojet/merchant-bhatnbhat.webp';
 import tyCard from '../assets/Grojet/ty-card.webp';
+import tyCard2 from '../assets/Grojet/ty-card-2.webp';
+import tyCards from '../assets/Grojet/ty-cards.webp';
 
 const optimizedHeroBg = await getImage({ src: festiveVishu, width: 1920, format: 'webp', quality: 75 });
 
-const checklist = [
-  'Celebrate festivals and local culture',
-  'Support local merchants and partnerships',
-  'Create memorable unboxing & brand moments',
-];
-
-const stats = [
-  { value: '15+', label: 'Design Assets' },
-  { value: '6+', label: 'Campaigns' },
-  { value: '100%', label: 'Mangalore Inspired' },
+const brandColors = [
+  { hex: '#DFEC30', name: 'Lime Yellow', light: false },
+  { hex: '#000000', name: 'Black', light: true },
+  { hex: '#FFFFFF', name: 'White', light: false },
 ];
 
 const categories = [
@@ -51,23 +48,40 @@ const categories = [
   },
   {
     number: '03',
-    key: 'thankyou',
-    title: 'Thank You Card',
-    description: 'Turning unboxing into a fun and interactive experience.',
-    layout: 'single',
+    key: 'social',
+    title: 'Social Media Posts',
+    description: 'Campaign posts shared across Instagram and WhatsApp.',
+    layout: 'social',
     images: [
-      { src: tyCard, alt: 'Grojet thank-you card with Mangalore-themed puzzle' },
+      { src: festiveRamNavami, alt: 'Ram Navami Instagram post' },
+      { src: festiveEid, alt: 'Eid Mubarak Instagram post' },
+      { src: festiveVishu, alt: 'Vishu Instagram post' },
+      { src: merchantCanara, alt: 'Canara Farms Instagram post' },
+      { src: merchantBhatnbhat, alt: 'Bhat n Bhat Instagram post' },
+      { src: merchantNila, alt: 'Nila Instagram post' },
     ],
   },
   {
     number: '04',
+    key: 'thankyou',
+    title: 'Thank You Card',
+    description: 'Turning unboxing into a fun and interactive experience.',
+    layout: 'tycard',
+    images: [
+      { src: tyCard, alt: 'Grojet thank-you card design' },
+      { src: tyCard2, alt: 'Grojet thank-you card mockup' },
+      { src: tyCards, alt: 'Grojet thank-you card collection' },
+    ],
+  },
+  {
+    number: '05',
     key: 'merchandise',
     title: 'Merchandise',
     description: 'Mangalore doodle tote bag design.',
-    layout: 'single',
-    compact: true,
+    layout: 'row2',
     images: [
-      { src: toteFlat, alt: 'Grojet branded tote bag flat design' },
+      { src: toteFlat, alt: 'Grojet tote bag flat design' },
+      { src: toteMockup, alt: 'Grojet tote bag lifestyle mockup' },
     ],
   },
 ];
@@ -75,19 +89,6 @@ const categories = [
 const filters = [
   { label: 'All', key: 'all' },
   ...categories.map((c) => ({ label: c.title, key: c.key })),
-];
-
-const designProcess = [
-  { label: 'Research & Inspiration', icon: 'M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14zM21 21l-4.3-4.3' },
-  { label: 'Concept & Sketching', icon: 'M17 3a2.85 2.85 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z' },
-  { label: 'Design & Iteration', icon: 'M20.6 13.4 12.5 21.5a2 2 0 0 1-2.8 0l-6.2-6.2a2 2 0 0 1 0-2.8L11.6 4.4a2 2 0 0 1 1.4-.6H19a2 2 0 0 1 2 2v6.2a2 2 0 0 1-.4 1.4zM16.5 8.5h.01' },
-  { label: 'Final Delivery', icon: 'M19 21H5a2 2 0 0 1-2-2V8l5-5h8l5 5v11a2 2 0 0 1-2 2zM8 3v5H3M8 13h8' },
-];
-
-const impact = [
-  { label: 'Stronger local brand presence', icon: 'M12 2 4 5v6c0 5.5 3.8 8.7 8 11 4.2-2.3 8-5.5 8-11V5l-8-3z' },
-  { label: 'Enhanced customer engagement', icon: 'M7 14a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM17 14a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM7 14c-2.2 0-4 1.5-4 3.5V19h8v-1.5c0-2-1.8-3.5-4-3.5zM17 14c-.8 0-1.6.15-2.3.45.8.85 1.3 1.95 1.3 3.05V19h6v-1.5c0-2-1.8-3.5-4-3.5z' },
-  { label: 'Built emotional connection', icon: 'M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z' },
 ];
 ---
 
@@ -125,7 +126,7 @@ const impact = [
 
               <div class="detail-item">
                 <p class="detail-label">ROLE</p>
-                <p class="detail-value">Brand & Marketing Designer</p>
+                <p class="detail-value">Content Marketing Specialist</p>
               </div>
 
               <div class="detail-item">
@@ -140,41 +141,20 @@ const impact = [
       <section class="overview-section reveal">
         <h2 class="section-title">Project Overview</h2>
         <p class="overview-text">
-          The goal was to design marketing collaterals that resonate with Mangalore's culture, support local merchants, and create a delightful brand interaction beyond just delivery.
+          A series of marketing and brand assets designed for Grojet, Mangalore's trusted grocery & delivery app, to strengthen local connect, celebrate culture, and build a memorable brand experience beyond just delivery.
         </p>
-        <ul class="checklist">
-          {checklist.map((item) => (
-            <li>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/>
-                <path d="M8 12.5l2.5 2.5L16 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              {item}
-            </li>
-          ))}
-        </ul>
       </section>
 
-      <section class="highlights-section reveal">
-        <h2 class="section-title">Design Highlights</h2>
-        <div class="stats-row">
-          {stats.map((s, i) => (
-            <>
-              {i > 0 && <span class="stat-divider"></span>}
-              <div class="stat-item">
-                <span class="stat-value">{s.value}</span>
-                <span class="stat-label">{s.label}</span>
-              </div>
-            </>
+      <section class="brand-colors-section reveal">
+        <h2 class="section-title">Brand Colours</h2>
+        <div class="color-swatches">
+          {brandColors.map((c) => (
+            <div class="color-swatch" style={`background: ${c.hex};`}>
+              <span class="color-hex" style={c.light ? 'color:#fff;' : 'color:#0a0a0a;'}>{c.hex}</span>
+              <span class="color-name" style={c.light ? 'color:rgba(255,255,255,0.6);' : 'color:rgba(10,10,10,0.5);'}>{c.name}</span>
+            </div>
           ))}
         </div>
-      </section>
-
-      <section class="quote-section reveal-scale">
-        <svg class="quote-icon" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M7 7c-2.2 0-4 1.8-4 4v6h6v-6H6.2C6.6 9.5 8 8.5 9.5 8.3L9 6c-.7.2-1.4.5-2 1zm10 0c-2.2 0-4 1.8-4 4v6h6v-6h-2.8c.4-1.5 1.8-2.5 3.3-2.7L19 6c-.7.2-1.4.5-2 1z"/>
-        </svg>
-        <p>Designing more than just promotions — building connections.</p>
       </section>
 
       <section class="projects-section reveal">
@@ -202,48 +182,15 @@ const impact = [
                 </svg>
               </span>
             </div>
-            <div class={`category-images ${cat.layout} ${cat.compact ? 'compact' : ''}`}>
+            <div class={`category-images ${cat.layout}`}>
               {cat.images.map((img) => (
                 <div class="category-image">
-                  <Image src={img.src} alt={img.alt} width={cat.layout === 'single' ? 1000 : 500} loading="lazy" data-cursor-hover />
+                  <Image src={img.src} alt={img.alt} width={600} loading="lazy" data-cursor-hover />
                 </div>
               ))}
             </div>
           </div>
         ))}
-      </section>
-
-      <section class="process-section reveal">
-        <h2 class="section-title">Design Process</h2>
-        <div class="process-row" data-stagger>
-          {designProcess.map((step, i) => (
-            <>
-              <div class="process-step">
-                <div class="process-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d={step.icon} stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </div>
-                <span>{step.label}</span>
-              </div>
-              {i < designProcess.length - 1 && <span class="process-line"></span>}
-            </>
-          ))}
-        </div>
-      </section>
-
-      <section class="impact-section reveal">
-        <h2 class="section-title">Impact</h2>
-        <div class="impact-row" data-stagger>
-          {impact.map((item) => (
-            <div class="impact-item">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d={item.icon} stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              <span>{item.label}</span>
-            </div>
-          ))}
-        </div>
       </section>
 
       <a href="/gowaterz" class="next-project-btn reveal" data-cursor-hover>
@@ -324,6 +271,7 @@ const impact = [
     z-index: 1;
   }
 
+  /* ── Hero ── */
   .hero-section {
     display: flex;
     flex-direction: column;
@@ -438,8 +386,8 @@ const impact = [
     margin: 0;
   }
 
-  .overview-section,
-  .highlights-section {
+  /* ── Overview ── */
+  .overview-section {
     max-width: 900px;
     margin: 0 auto;
     padding: 3.5rem 3rem;
@@ -463,87 +411,56 @@ const impact = [
     font-size: 1.05rem;
     line-height: 1.75;
     color: rgba(255, 255, 255, 0.8);
-    margin: 0 0 2rem 0;
+    margin: 0;
     max-width: 680px;
   }
 
-  .checklist {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  /* ── Brand Colours ── */
+  .brand-colors-section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 3rem 3.5rem;
+  }
+
+  .color-swatches {
     display: flex;
-    flex-direction: column;
     gap: 1rem;
   }
 
-  .checklist li {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    font-family: var(--font-syne);
-    font-size: 1rem;
-    color: rgba(255, 255, 255, 0.85);
-  }
-
-  .checklist li svg {
-    flex-shrink: 0;
-    color: var(--color-red);
-  }
-
-  .stats-row {
-    display: flex;
-    align-items: center;
-    gap: 2.5rem;
-  }
-
-  .stat-item {
+  .color-swatch {
+    flex: 1;
+    height: 110px;
+    border-radius: 12px;
     display: flex;
     flex-direction: column;
-    gap: 0.4rem;
-  }
-
-  .stat-value {
-    font-family: var(--font-syne);
-    font-size: clamp(2rem, 4vw, 2.6rem);
-    font-weight: 800;
-    color: var(--color-red);
-  }
-
-  .stat-label {
-    font-family: var(--font-syne);
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.65);
-  }
-
-  .stat-divider {
-    width: 1px;
-    height: 48px;
-    background: #2a2a2a;
-  }
-
-  .quote-section {
-    max-width: 700px;
-    margin: 0 auto 3rem;
-    padding: 2.5rem;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 1rem 1.1rem;
     border: 1px solid #2a2a2a;
-    border-radius: 16px;
-    background: rgba(255, 1, 5, 0.04);
+    transition: transform var(--dur-base, 0.3s) var(--ease-out, ease);
   }
 
-  .quote-icon {
-    color: var(--color-red);
-    margin-bottom: 1rem;
+  .color-swatch:hover {
+    transform: translateY(-4px);
   }
 
-  .quote-section p {
+  .color-hex {
     font-family: var(--font-syne);
-    font-size: 1.3rem;
-    font-weight: 500;
-    line-height: 1.5;
-    color: var(--color-white);
-    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    display: block;
   }
 
+  .color-name {
+    font-family: var(--font-syne);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    display: block;
+    margin-top: 0.25rem;
+  }
+
+  /* ── Projects ── */
   .projects-section {
     max-width: 1200px;
     margin: 0 auto;
@@ -653,35 +570,71 @@ const impact = [
     margin-top: 0.3rem;
   }
 
+  /* ── Image grids ── */
   .category-images {
     display: grid;
     gap: 1rem;
   }
 
+  /* 3-col tall: festival / merchant */
   .category-images.row3 {
     grid-template-columns: repeat(3, 1fr);
-  }
-
-  .category-images.single {
-    grid-template-columns: 1fr;
-  }
-
-  .category-images.compact {
-    max-width: 420px;
-  }
-
-  .category-image {
-    border-radius: 12px;
-    overflow: hidden;
-    border: 1px solid #2a2a2a;
   }
 
   .category-images.row3 .category-image img {
     aspect-ratio: 9 / 16;
   }
 
-  .category-images.compact .category-image img {
+  /* 2-col: merchandise */
+  .category-images.row2 {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 700px;
+  }
+
+  .category-images.row2 .category-image img {
+    aspect-ratio: 4 / 5;
+  }
+
+  /* 3×2 Instagram-style grid: social media posts */
+  .category-images.social {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+  }
+
+  .category-images.social .category-image {
+    border-radius: 4px;
+    border: none;
+  }
+
+  .category-images.social .category-image img {
     aspect-ratio: 1 / 1;
+  }
+
+  /* Thank You Card: first 2 landscape, 3rd full-width portrait */
+  .category-images.tycard {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .category-images.tycard .category-image:nth-child(-n+2) img {
+    aspect-ratio: 3 / 2;
+  }
+
+  .category-images.tycard .category-image:nth-child(3) {
+    grid-column: span 2;
+    max-width: 500px;
+    justify-self: center;
+    width: 100%;
+  }
+
+  .category-images.tycard .category-image:nth-child(3) img {
+    aspect-ratio: 4 / 5;
+  }
+
+  /* shared card styles */
+  .category-image {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #2a2a2a;
   }
 
   .category-image img {
@@ -696,76 +649,7 @@ const impact = [
     transform: scale(1.04);
   }
 
-  .process-section,
-  .impact-section {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 3rem 3rem;
-  }
-
-  .process-row {
-    display: flex;
-    align-items: center;
-    gap: 0;
-    margin-top: 2.5rem;
-  }
-
-  .process-step {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.85rem;
-    text-align: center;
-    width: 140px;
-    flex-shrink: 0;
-  }
-
-  .process-icon {
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    border: 1px solid #2a2a2a;
-    background: #161616;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-red);
-  }
-
-  .process-step span {
-    font-family: var(--font-syne);
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.75);
-  }
-
-  .process-line {
-    flex: 1;
-    height: 1px;
-    background: #2a2a2a;
-    margin: 0 -0.5rem;
-    transform: translateY(-22px);
-  }
-
-  .impact-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2.5rem;
-    margin-top: 2.5rem;
-  }
-
-  .impact-item {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    color: var(--color-red);
-  }
-
-  .impact-item span {
-    font-family: var(--font-syne);
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.8);
-  }
-
+  /* ── Next project ── */
   .next-project-btn {
     display: flex;
     align-items: center;
@@ -823,6 +707,7 @@ const impact = [
     margin: 0;
   }
 
+  /* ── Responsive ── */
   @media (max-width: 768px) {
     .back-button {
       top: 1.25rem;
@@ -837,7 +722,6 @@ const impact = [
     }
 
     .hero-content {
-      padding: 1.5rem 1.25rem 2rem 1.25rem;
       min-height: 100vh;
     }
 
@@ -865,26 +749,25 @@ const impact = [
       margin-bottom: 0.5rem;
     }
 
-    .overview-section,
-    .highlights-section {
+    .overview-section {
       padding: 2.5rem 1.25rem;
     }
 
-    .stats-row {
-      gap: 1.25rem;
+    .brand-colors-section {
+      padding: 0 1.25rem 2.5rem;
     }
 
-    .stat-divider {
-      height: 36px;
+    .color-swatches {
+      gap: 0.6rem;
     }
 
-    .quote-section {
-      margin: 0 1.25rem 2.5rem;
-      padding: 1.75rem;
+    .color-swatch {
+      height: 90px;
+      padding: 0.75rem 0.85rem;
     }
 
-    .quote-section p {
-      font-size: 1.1rem;
+    .color-hex {
+      font-size: 0.75rem;
     }
 
     .projects-section {
@@ -896,28 +779,26 @@ const impact = [
       gap: 0.5rem;
     }
 
-    .category-images.row3 {
+    .category-images.row3,
+    .category-images.social {
       grid-template-columns: 1fr;
     }
 
-    .process-section,
-    .impact-section {
-      padding: 2.5rem 1.25rem;
+    .category-images.social {
+      gap: 4px;
     }
 
-    .process-row {
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1.5rem 0.5rem;
+    .category-images.row2 {
+      grid-template-columns: 1fr;
     }
 
-    .process-line {
-      display: none;
+    .category-images.tycard {
+      grid-template-columns: 1fr;
     }
 
-    .impact-row {
-      flex-direction: column;
-      gap: 1.25rem;
+    .category-images.tycard .category-image:nth-child(3) {
+      grid-column: span 1;
+      max-width: 100%;
     }
 
     .next-project-btn {
