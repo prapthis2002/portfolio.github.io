@@ -753,25 +753,51 @@ const filters = [
       padding: 2.5rem 1.25rem;
     }
 
+    .overview-text {
+      font-size: 0.95rem;
+    }
+
     .brand-colors-section {
       padding: 0 1.25rem 2.5rem;
     }
 
     .color-swatches {
-      gap: 0.6rem;
+      gap: 0.5rem;
     }
 
     .color-swatch {
-      height: 90px;
-      padding: 0.75rem 0.85rem;
+      height: 80px;
+      padding: 0.65rem 0.75rem;
     }
 
     .color-hex {
-      font-size: 0.75rem;
+      font-size: 0.72rem;
+    }
+
+    .color-name {
+      font-size: 0.6rem;
     }
 
     .projects-section {
       padding: 1rem 1.25rem 3rem;
+    }
+
+    .projects-heading {
+      font-size: clamp(1.3rem, 5vw, 1.8rem);
+    }
+
+    .filter-row {
+      gap: 0.45rem;
+      margin: 1.5rem 0 2.5rem;
+    }
+
+    .filter-pill {
+      font-size: 0.7rem;
+      padding: 0.45rem 0.9rem;
+    }
+
+    .category-block {
+      padding: 2rem 0;
     }
 
     .category-header {
@@ -779,19 +805,29 @@ const filters = [
       gap: 0.5rem;
     }
 
-    .category-images.row3,
-    .category-images.social {
-      grid-template-columns: 1fr;
+    .category-title {
+      font-size: 1.1rem;
     }
 
-    .category-images.social {
-      gap: 4px;
+    /* Festival / Merchant: 2-col portrait grid on mobile */
+    .category-images.row3 {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.6rem;
     }
 
+    /* Social: keep 3-col Instagram grid on mobile */
+    .category-images.social {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3px;
+    }
+
+    /* Merchandise: single column, full width */
     .category-images.row2 {
       grid-template-columns: 1fr;
+      max-width: 100%;
     }
 
+    /* Thank You Card: single column */
     .category-images.tycard {
       grid-template-columns: 1fr;
     }
@@ -807,8 +843,37 @@ const filters = [
       padding: 1.5rem 1.5rem;
     }
 
+    .next-project-btn svg {
+      width: 20px;
+      height: 20px;
+    }
+
     .footer {
       padding: 2.5rem 1.25rem;
+    }
+  }
+
+  @media (max-width: 400px) {
+    .color-swatches {
+      gap: 0.35rem;
+    }
+
+    .color-swatch {
+      height: 70px;
+      padding: 0.5rem 0.6rem;
+    }
+
+    .color-hex {
+      font-size: 0.65rem;
+    }
+
+    .color-name {
+      display: none;
+    }
+
+    .filter-pill {
+      font-size: 0.65rem;
+      padding: 0.4rem 0.75rem;
     }
   }
 </style>
