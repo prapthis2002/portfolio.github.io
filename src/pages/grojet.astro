@@ -1,17 +1,25 @@
 ---
 import { Image, getImage } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
-import toteFlat from '../assets/Grojet/tote-flat.webp';
-import toteMockup from '../assets/Grojet/tote-mockup.webp';
-import festiveVishu from '../assets/Grojet/festive-vishu.webp';
+import toteFlat from '../assets/Grojet/tote.webp';
+import toteMockup from '../assets/Grojet/tote mockups.webp';
+import festiveVishu from '../assets/Grojet/festive poster.webp';
 import festiveRamNavami from '../assets/Grojet/festive-ramnavami.webp';
 import festiveEid from '../assets/Grojet/festive-eid.webp';
-import merchantNila from '../assets/Grojet/merchant-nila.webp';
+import merchantNila from '../assets/Grojet/merchant design .webp';
 import merchantCanara from '../assets/Grojet/merchant-canara.webp';
 import merchantBhatnbhat from '../assets/Grojet/merchant-bhatnbhat.webp';
 import tyCard from '../assets/Grojet/ty-card.webp';
 import tyCard2 from '../assets/Grojet/ty-card-2.webp';
-import tyCards from '../assets/Grojet/ty-cards.webp';
+import tyCards from '../assets/Grojet/ty cards.webp';
+import tyCardMockup from '../assets/Grojet/ty card mock up.webp';
+import socialPost0 from '../assets/Grojet/social media poster.webp';
+import socialPost1 from '../assets/Grojet/social media poster 1.webp';
+import socialPost2 from '../assets/Grojet/social media poster 2.webp';
+import socialPost3 from '../assets/Grojet/social media poster 3.webp';
+import grojetRestro from '../assets/Grojet/grojet restro (1).webp';
+import imgCampaign from '../assets/Grojet/IMG_8280.webp';
+import brochure from '../assets/Grojet/three-panel-brochure-mockup-stylish-modern-presentations-for-business-marketing-promotions-0902.webp';
 
 const optimizedHeroBg = await getImage({ src: festiveVishu, width: 1920, format: 'webp', quality: 75 });
 
@@ -31,7 +39,8 @@ const categories = [
     images: [
       { src: festiveRamNavami, alt: 'Happy Ram Navami festive poster' },
       { src: festiveEid, alt: 'Eid Mubarak festive poster' },
-      { src: festiveVishu, alt: 'Happy Vishu festive poster' },
+      { src: festiveVishu, alt: 'Festive campaign poster' },
+      { src: imgCampaign, alt: 'Grojet festive campaign' },
     ],
   },
   {
@@ -43,7 +52,8 @@ const categories = [
     images: [
       { src: merchantCanara, alt: 'Grojet x Canara Farms fresh milk campaign' },
       { src: merchantBhatnbhat, alt: "Grojet x Bhat 'n' Bhat pickle campaign" },
-      { src: merchantNila, alt: 'Grojet x Nila coffee & brownie campaign' },
+      { src: merchantNila, alt: 'Grojet merchant design' },
+      { src: grojetRestro, alt: 'Grojet restaurant partner' },
     ],
   },
   {
@@ -53,12 +63,10 @@ const categories = [
     description: 'Campaign posts shared across Instagram and WhatsApp.',
     layout: 'social',
     images: [
-      { src: festiveRamNavami, alt: 'Ram Navami Instagram post' },
-      { src: festiveEid, alt: 'Eid Mubarak Instagram post' },
-      { src: festiveVishu, alt: 'Vishu Instagram post' },
-      { src: merchantCanara, alt: 'Canara Farms Instagram post' },
-      { src: merchantBhatnbhat, alt: 'Bhat n Bhat Instagram post' },
-      { src: merchantNila, alt: 'Nila Instagram post' },
+      { src: socialPost0, alt: 'Grojet social media post' },
+      { src: socialPost1, alt: 'Grojet social media post 1' },
+      { src: socialPost2, alt: 'Grojet social media post 2' },
+      { src: socialPost3, alt: 'Grojet social media post 3' },
     ],
   },
   {
@@ -70,6 +78,7 @@ const categories = [
     images: [
       { src: tyCard, alt: 'Grojet thank-you card design' },
       { src: tyCard2, alt: 'Grojet thank-you card mockup' },
+      { src: tyCardMockup, alt: 'Grojet thank-you card lifestyle' },
       { src: tyCards, alt: 'Grojet thank-you card collection' },
     ],
   },
@@ -82,6 +91,7 @@ const categories = [
     images: [
       { src: toteFlat, alt: 'Grojet tote bag flat design' },
       { src: toteMockup, alt: 'Grojet tote bag lifestyle mockup' },
+      { src: brochure, alt: 'Grojet brochure design' },
     ],
   },
 ];
@@ -591,26 +601,36 @@ const filters = [
     max-width: 700px;
   }
 
-  .category-images.row2 .category-image img {
+  .category-images.row2 .category-image:nth-child(1) img {
+    aspect-ratio: 1 / 1;
+  }
+
+  .category-images.row2 .category-image:nth-child(2) img {
     aspect-ratio: 4 / 5;
   }
 
-  /* 3×2 Instagram-style grid: social media posts */
-  .category-images.social {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 4px;
+  .category-images.row2 .category-image:nth-child(3) {
+    grid-column: span 2;
+    max-width: 320px;
+    justify-self: center;
+    width: 100%;
   }
 
-  .category-images.social .category-image {
-    border-radius: 4px;
-    border: none;
+  .category-images.row2 .category-image:nth-child(3) img {
+    aspect-ratio: 4 / 5;
+  }
+
+  /* 2×2 grid: social media posts (4:5 format) */
+  .category-images.social {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
   }
 
   .category-images.social .category-image img {
-    aspect-ratio: 9 / 16;
+    aspect-ratio: 4 / 5;
   }
 
-  /* Thank You Card: first 2 landscape, 3rd full-width portrait */
+  /* Thank You Card: 2 landscape side-by-side, 1 full-width landscape, 1 portrait centred */
   .category-images.tycard {
     grid-template-columns: 1fr 1fr;
   }
@@ -621,12 +641,20 @@ const filters = [
 
   .category-images.tycard .category-image:nth-child(3) {
     grid-column: span 2;
+  }
+
+  .category-images.tycard .category-image:nth-child(3) img {
+    aspect-ratio: 3 / 2;
+  }
+
+  .category-images.tycard .category-image:nth-child(4) {
+    grid-column: span 2;
     max-width: 500px;
     justify-self: center;
     width: 100%;
   }
 
-  .category-images.tycard .category-image:nth-child(3) img {
+  .category-images.tycard .category-image:nth-child(4) img {
     aspect-ratio: 4 / 5;
   }
 
@@ -815,10 +843,10 @@ const filters = [
       gap: 0.6rem;
     }
 
-    /* Social: keep 3-col Instagram grid on mobile */
+    /* Social: keep 2-col on mobile */
     .category-images.social {
-      grid-template-columns: repeat(3, 1fr);
-      gap: 3px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.6rem;
     }
 
     /* Merchandise: single column, full width */
@@ -827,12 +855,18 @@ const filters = [
       max-width: 100%;
     }
 
+    .category-images.row2 .category-image:nth-child(3) {
+      grid-column: span 1;
+      max-width: 100%;
+    }
+
     /* Thank You Card: single column */
     .category-images.tycard {
       grid-template-columns: 1fr;
     }
 
-    .category-images.tycard .category-image:nth-child(3) {
+    .category-images.tycard .category-image:nth-child(3),
+    .category-images.tycard .category-image:nth-child(4) {
       grid-column: span 1;
       max-width: 100%;
     }
