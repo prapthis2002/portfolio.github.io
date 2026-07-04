@@ -12,7 +12,6 @@ import merchantBhatnbhat from '../assets/Grojet/merchant-bhatnbhat.webp';
 import tyCard from '../assets/Grojet/ty-card.webp';
 import tyCard2 from '../assets/Grojet/ty-card-2.webp';
 import tyCards from '../assets/Grojet/ty-cards.webp';
-import tyCardMockup from '../assets/Grojet/ty-card-mockup.webp';
 import socialPost0 from '../assets/Grojet/social-media-poster.webp';
 import socialPost1 from '../assets/Grojet/social-media-poster-1.webp';
 import socialPost2 from '../assets/Grojet/social-media-poster-2.webp';
@@ -36,6 +35,7 @@ const categories = [
     title: 'Festival Posters',
     description: 'Celebrating festivals with local flavor and festive vibes.',
     layout: 'row3',
+    imgWidth: 400,
     images: [
       { src: festiveRamNavami, alt: 'Happy Ram Navami festive poster' },
       { src: festiveEid, alt: 'Eid Mubarak festive poster' },
@@ -49,6 +49,7 @@ const categories = [
     title: 'Merchant Stories',
     description: 'Highlighting local businesses we partner with.',
     layout: 'row3',
+    imgWidth: 400,
     images: [
       { src: merchantCanara, alt: 'Grojet x Canara Farms fresh milk campaign' },
       { src: merchantBhatnbhat, alt: "Grojet x Bhat 'n' Bhat pickle campaign" },
@@ -62,6 +63,7 @@ const categories = [
     title: 'Social Media Posts',
     description: 'Campaign posts shared across Instagram and WhatsApp.',
     layout: 'social',
+    imgWidth: 500,
     images: [
       { src: socialPost0, alt: 'Grojet social media post' },
       { src: socialPost1, alt: 'Grojet social media post 1' },
@@ -75,10 +77,10 @@ const categories = [
     title: 'Thank You Card',
     description: 'Turning unboxing into a fun and interactive experience.',
     layout: 'tycard',
+    imgWidth: 500,
     images: [
       { src: tyCard, alt: 'Grojet thank-you card design' },
       { src: tyCard2, alt: 'Grojet thank-you card mockup' },
-      { src: tyCardMockup, alt: 'Grojet thank-you card lifestyle' },
       { src: tyCards, alt: 'Grojet thank-you card collection' },
     ],
   },
@@ -88,6 +90,7 @@ const categories = [
     title: 'Merchandise',
     description: 'Mangalore doodle tote bag design.',
     layout: 'row2',
+    imgWidth: 480,
     images: [
       { src: toteFlat, alt: 'Grojet tote bag flat design' },
       { src: toteMockup, alt: 'Grojet tote bag lifestyle mockup' },
@@ -167,7 +170,7 @@ const filters = [
         </div>
       </section>
 
-      <section class="projects-section reveal">
+      <section class="projects-section">
         <p class="projects-label">PROJECTS</p>
         <h2 class="projects-heading">What I Designed for Grojet</h2>
 
@@ -195,7 +198,7 @@ const filters = [
             <div class={`category-images ${cat.layout}`}>
               {cat.images.map((img) => (
                 <div class="category-image">
-                  <Image src={img.src} alt={img.alt} width={600} loading="lazy" data-cursor-hover />
+                  <Image src={img.src} alt={img.alt} width={cat.imgWidth} quality={65} loading="lazy" data-cursor-hover />
                 </div>
               ))}
             </div>
@@ -630,7 +633,7 @@ const filters = [
     aspect-ratio: 4 / 5;
   }
 
-  /* Thank You Card: 2 landscape side-by-side, 1 full-width landscape, 1 portrait centred */
+  /* Thank You Card: first 2 landscape side-by-side, 3rd portrait centred */
   .category-images.tycard {
     grid-template-columns: 1fr 1fr;
   }
@@ -641,20 +644,12 @@ const filters = [
 
   .category-images.tycard .category-image:nth-child(3) {
     grid-column: span 2;
-  }
-
-  .category-images.tycard .category-image:nth-child(3) img {
-    aspect-ratio: 3 / 2;
-  }
-
-  .category-images.tycard .category-image:nth-child(4) {
-    grid-column: span 2;
     max-width: 500px;
     justify-self: center;
     width: 100%;
   }
 
-  .category-images.tycard .category-image:nth-child(4) img {
+  .category-images.tycard .category-image:nth-child(3) img {
     aspect-ratio: 4 / 5;
   }
 
@@ -865,8 +860,7 @@ const filters = [
       grid-template-columns: 1fr;
     }
 
-    .category-images.tycard .category-image:nth-child(3),
-    .category-images.tycard .category-image:nth-child(4) {
+    .category-images.tycard .category-image:nth-child(3) {
       grid-column: span 1;
       max-width: 100%;
     }
