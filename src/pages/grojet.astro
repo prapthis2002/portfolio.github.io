@@ -53,7 +53,6 @@ const categories = [
       { src: merchantCanara, alt: 'Grojet x Canara Farms fresh milk campaign' },
       { src: merchantBhatnbhat, alt: "Grojet x Bhat 'n' Bhat pickle campaign" },
       { src: merchantNila, alt: 'Grojet merchant design' },
-      { src: grojetRestro, alt: 'Grojet restaurant partner' },
     ],
   },
   {
@@ -94,7 +93,18 @@ const categories = [
     images: [
       { src: toteFlat, alt: 'Grojet tote bag flat design' },
       { src: toteMockup, alt: 'Grojet tote bag lifestyle mockup' },
-      { src: brochure, alt: 'Grojet brochure design' },
+    ],
+  },
+  {
+    number: '06',
+    key: 'brochure',
+    title: 'Brochure Trifold',
+    description: 'Print design for Grojet — restaurant visual and trifold brochure.',
+    layout: 'trifold',
+    imgWidth: 700,
+    images: [
+      { src: grojetRestro, alt: 'Grojet restaurant visual' },
+      { src: brochure, alt: 'Grojet trifold brochure design' },
     ],
   },
 ];
@@ -650,6 +660,26 @@ const filters = [
   }
 
   .category-images.tycard .category-image:nth-child(3) img {
+    aspect-ratio: 4 / 5;
+  }
+
+  /* Brochure Trifold: landscape top, portrait centred below */
+  .category-images.trifold {
+    grid-template-columns: 1fr;
+    max-width: 800px;
+  }
+
+  .category-images.trifold .category-image:nth-child(1) img {
+    aspect-ratio: 3 / 2;
+  }
+
+  .category-images.trifold .category-image:nth-child(2) {
+    max-width: 340px;
+    justify-self: center;
+    width: 100%;
+  }
+
+  .category-images.trifold .category-image:nth-child(2) img {
     aspect-ratio: 4 / 5;
   }
 
